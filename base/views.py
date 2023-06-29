@@ -97,7 +97,7 @@ def livestream(request):
 # ==================================================================
 def blogs(request):
     context = {}
-    return render(request, 'base/blog.html', context)
+    return render(request, 'base/blogs.html', context)
 
 # ==================================================================
 # 15. Blog
