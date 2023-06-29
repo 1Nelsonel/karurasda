@@ -100,8 +100,29 @@ def blogs(request):
     return render(request, 'base/blog.html', context)
 
 # ==================================================================
-# 14. Blog
+# 15. Blog
 # ==================================================================
 def blog(request):
     context = {}
     return render(request, 'base/blog.html', context)
+
+# ==================================================================
+# 16. egwwrittings
+# ==================================================================
+def egwwrittings(request):
+    context = {}
+    return render(request, 'base/egwwrittings.html', context)
+
+# ==================================================================
+# 17. Lesson
+# ==================================================================
+def lesson(request):
+    context = {}
+    return render(request, 'base/lesson.html', context)
+
+# ==================================================================
+# 18. Media
+# ==================================================================
+def media(request):
+    context = {}
+    return render(request, 'base/media.html', context)
