@@ -5,9 +5,20 @@
 {% load static %}
 
 <style>
-    .carousel-item img {
+    .carousel-img {
         width: 100% !important;
-        aspect-ratio: 7/2 !important;
+        aspect-ratio: 5/2 !important;
+        /* object-fit: cover !important; */
+    }
+
+    .event-img {
+        width: 100% !important;
+        aspect-ratio: 2/1 !important;
+    }
+
+    .about-img {
+        width: 100% !important;
+        aspect-ratio: 2/1 !important;
     }
 </style>
 
@@ -17,9 +28,10 @@
     <div id="carouselExampleControls" class="carousel slide u-space--zero--top" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="{% static 'images/slider/slider22_bg.jpg' %}" alt="First slide">
+                <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide4.png' %}" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--3-of-7 u-shift--left--1-col--at-xxlarge">
+                    <div
+                        class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--3-of-7 u-shift--left--1-col--at-xxlarge">
                         <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church</h1>
                         <p> Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the
                             Son, and of the Holy Ghost</p>
@@ -27,9 +39,11 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{% static 'images/slider/slider4_bg2.jpg' %}" alt="Second slide">
+                <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide6.png' %}"
+                    alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--3-of-7 u-shift--left--1-col--at-xxlarge">
+                    <div
+                        class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--3-of-7 u-shift--left--1-col--at-xxlarge">
                         <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church</h1>
                         <p> Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the
                             Son, and of the Holy Ghost</p>
@@ -37,10 +51,11 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{% static 'images/slider/slider4_bg1.jpg' %}" alt="Third slide">
+                <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide5.png' %}" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--3-of-7 u-shift--left--1-col--at-xxlarge">
-                        <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church</h1>
+                    <div
+                        class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--3-of-7 u-shift--left--1-col--at-xxlarge">
+                        <h3 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church</h3>
                         <p> Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the
                             Son, and of the Holy Ghost</p>
                     </div>
@@ -58,35 +73,111 @@
     </div>
 
     <div class="container">
-        <div class="u-font--primary--xl u-color--black u-font-weight--bold">
-            <h3>
+        <div class="">
+            <h class="text-primary u-font-weight--bold">
                 Seek the Lord while he may be found - Isaiah 55:6 Join us every Sabbath and let’s delve together into
                 the Word of God, and in praise and worship.
-            </h3>
+            </h>
         </div>
     </div>
+    <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
 
     <section id="top"
         class="l-main__content l-grid l-grid--7-col l-grid-wrap--6-of-7 u-spacing--double--until-xxlarge u-padding--zero--sides u-shift--left--1-col--at-xxlarge">
-        <article class="c-article l-grid-item l-grid-item--l--4-col l-grid-item--xl--4-col l-grid-item--xxl--3-col">
+        <article class="c-article l-grid-item  pl-0 ">
+            <div class="container text-center ">
+                <h3 class="u-font--primary--xl text-primary u-font-weight--bold">Events</h3>
+            </div>
             <div class="c-article__body">
                 <div class="text u-spacing--double u-space--double--top">
-                    <div class="c-block c-block__text  u-theme--border-color--darker u-border--left u-spacing--half">
-                        <h3 class="u-theme--color--darker u-theme--color--darker u-font--primary--m">
-                            <a href="./2023/06/27/hello-world/" class="c-block__title-link u-theme--link-hover--dark">
-                                <strong>Hello
-                                    world!</strong> </a>
-                        </h3>
-                        <p class="c-block__body text"> Welcome to WordPress. This is your first
-                            post. Edit or delete it, then start writing! </p> <a href="./2023/06/27/hello-world/"
-                            class="c-block__button o-button o-button--outline">Read More<span
-                                class="u-icon u-icon--m u-path-fill--base u-space--half--left"><svg
-                                    xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20">
-                                    <title>Long right arrow</title>
-                                    <path
-                                        d="M18.29,8.59l-3.5-3.5L13.38,6.5,15.88,9H.29v2H15.88l-2.5,2.5,1.41,1.41,3.5-3.5L19.71,10Z"
-                                        fill="#9b9b9b" />
-                                </svg> </span></a>
+                    <div class="c-block c-block__text  u-theme--border-color--darker u-border--left">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <img class="event-img" src="{% static 'images/slider/slide5.png' %}" alt="">
+                            </div>
+                            <div class="col-sm-5">
+                                <h3 class="u-theme--color--darker u-theme--color--darker u-font--primary--m">
+                                    <a href="#" class="c-block__title-link u-theme--link-hover--dark">
+                                        <strong>Hello world!</strong> </a>
+                                </h3>
+                                <p class="c-block__body text"> Welcome to WordPress. This is your first post. Edit or
+                                    delete it, then start writing! </p>
+                                <a href="#" class="c-block__button o-button o-button--outline">Read More
+                                    <span class="u-icon u-icon--m u-path-fill--base u-space--half--left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20">
+                                            <title>Long right arrow</title>
+                                            <path
+                                                d="M18.29,8.59l-3.5-3.5L13.38,6.5,15.88,9H.29v2H15.88l-2.5,2.5,1.41,1.41,3.5-3.5L19.71,10Z"
+                                                fill="#9b9b9b" />
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-article__body">
+                <div class="text u-spacing--double u-space--double--top">
+                    <div class="c-block c-block__text  u-theme--border-color--darker u-border--left">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <img class="event-img" src="{% static 'images/slider/slide5.png' %}" alt="">
+                            </div>
+                            <div class="col-sm-5">
+                                <h3 class="u-theme--color--darker u-theme--color--darker u-font--primary--m">
+                                    <a href="./2023/06/27/hello-world/"
+                                        class="c-block__title-link u-theme--link-hover--dark">
+                                        <strong>Hello world!</strong> </a>
+                                </h3>
+                                <p class="c-block__body text"> Welcome to WordPress. This is your first post. Edit or
+                                    delete it, then start writing! </p>
+                                <a href="./2023/06/27/hello-world/"
+                                    class="c-block__button o-button o-button--outline">Read More
+                                    <span class="u-icon u-icon--m u-path-fill--base u-space--half--left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20">
+                                            <title>Long right arrow</title>
+                                            <path
+                                                d="M18.29,8.59l-3.5-3.5L13.38,6.5,15.88,9H.29v2H15.88l-2.5,2.5,1.41,1.41,3.5-3.5L19.71,10Z"
+                                                fill="#9b9b9b" />
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-article__body">
+                <div class="text u-spacing--double u-space--double--top">
+                    <div class="c-block c-block__text  u-theme--border-color--darker u-border--left">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <img class="event-img" src="{% static 'images/slider/slide5.png' %}" alt="">
+                            </div>
+                            <div class="col-sm-5">
+                                <h3 class="u-theme--color--darker u-theme--color--darker u-font--primary--m">
+                                    <a href="./2023/06/27/hello-world/"
+                                        class="c-block__title-link u-theme--link-hover--dark">
+                                        <strong>Hello world!</strong> </a>
+                                </h3>
+                                <p class="c-block__body text"> Welcome to WordPress. This is your first post. Edit or
+                                    delete it, then start writing! </p>
+                                <a href="./2023/06/27/hello-world/"
+                                    class="c-block__button o-button o-button--outline">Read More
+                                    <span class="u-icon u-icon--m u-path-fill--base u-space--half--left">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20">
+                                            <title>Long right arrow</title>
+                                            <path
+                                                d="M18.29,8.59l-3.5-3.5L13.38,6.5,15.88,9H.29v2H15.88l-2.5,2.5,1.41,1.41,3.5-3.5L19.71,10Z"
+                                                fill="#9b9b9b" />
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,6 +226,69 @@
             </div>
         </div>
     </section>
+
+    <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
+
+    <div class="container">
+        <h3 class="text-primary u-font-weight--bold text-center">Karura Adventist Church At Glance</h3>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row gx-5 align-items-center">
+                <div class="col-sm-6 order-lg-2">
+                    <div class="p-1"><img class="about-img" src="{% static 'images/slider/slide5.png' %}" alt="..." />
+                    </div>
+                </div>
+                <div class="col-sm-6 order-lg-1">
+                    <div class="p-1">
+                        <h4 class="text-primary u-font-weight--bold text-center">Our Mission</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam
+                            sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione
+                            voluptatum molestiae adipisci, beatae obcaecati.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content section 2-->
+
+        <div class="container">
+            <div class="row gx-5 align-items-center">
+                <div class="col-sm-6">
+                    <div class="p-1"><img class="about-img" src="{% static 'images/slider/slide5.png' %}" alt="..." />
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="p-1">
+                        <h4 class="text-primary u-font-weight--bold text-center">Our Vision</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam
+                            sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione
+                            voluptatum molestiae adipisci, beatae obcaecati.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content section 3-->
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-6 order-sm-2">
+                    <div class="p-1"><img class="about-img" src="{% static 'images/slider/slide5.png' %}" alt="..." />
+                    </div>
+                </div>
+                <div class="col-sm-6 order-lg-1">
+                    <div class="p-1">
+                        <h3 class="text-primary u-font-weight--bold text-center">Karura Adventist Church</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam
+                            sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione
+                            voluptatum molestiae adipisci, beatae obcaecati.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
 </main>
 <!-- /.l-main -->
 
