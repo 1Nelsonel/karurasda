@@ -18,8 +18,8 @@
                     <li class="c-secondary-nav__list-item"> <a href="{% url 'contact' %}"
                             class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">contact</a>
                     </li>
-                    
-                    
+
+
                     <li class="c-secondary-nav__list-item"> <a href="./departments.html"
                             class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Departments</a>
                     </li>
@@ -65,10 +65,10 @@
                 </ul> <!-- /.c-secondary-nav__list -->
             </nav> <!-- /.c-secondary-nav -->
         </div>
-        <div class="c-header__logo c-logo"> 
-            <a href="{% url 'home' %}" class="c-logo__link"> 
-                <img class="style-svg" src="{% static 'images/2023-06-Karura_logo.png' %}" alt=""> 
-            </a> 
+        <div class="c-header__logo c-logo">
+            <a href="{% url 'home' %}" class="c-logo__link">
+                <img class="style-svg" src="{% static 'images/2023-06-Karura_logo.png' %}" alt="">
+            </a>
         </div>
         <!-- /.c-header__logo -->
         <div class="c-header__nav-primary">
@@ -77,43 +77,117 @@
                     <li class="c-primary-nav__list-item"> <a href="{% url 'home' %}"
                             class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Home</a>
                     </li>
-                    <li class="c-primary-nav__list-item"> <a href="{% url 'about' %}"
-                        class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">About</a>
+
+                    <li class="c-primary-nav__list-item has-subnav">
+                        <a href="javascript:void()"
+                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">About-Us</a>
+                        <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
+                        <ul class="c-primary-nav__subnav c-subnav">
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="#"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Mision
+                                    & Vision</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="#"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our
+                                    Pastors</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="#"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">FAG's</a>
+                            </li>
+                        </ul>
                     </li>
+
+                    <li class="c-primary-nav__list-item"> <a href="{% url 'contact' %}"
+                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Membership</a>
+                    </li>
+
+                    <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
+                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Beliefs</a>
+                        <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
+                        <ul class="c-primary-nav__subnav c-subnav">
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Fundamental Beliefs</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Statement
+                                    of faith</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Guidelines</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church
+                                    Manual</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
+                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Downloads</a>
+                        <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
+                        <ul class="c-primary-nav__subnav c-subnav">
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church Calender</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Newsletters</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Tenders</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Vaccancies</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
+                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Resources</a>
+                        <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
+                        <ul class="c-primary-nav__subnav c-subnav">
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Lesson</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="https://kcausda.org/egwwritings/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">E. G White Estate</a>
+                            </li>
+                            <li
+                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                <a href="./category/uncategorized/"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Media</a>
+                            </li>
+                           
+                        </ul>
+                    </li>
+
                     <li class="c-primary-nav__list-item"> <a href="{% url 'contact' %}"
                             class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Contact</a>
-                    </li>
-                    <li class="c-primary-nav__list-item has-subnav"> <a href="#"
-                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Departments</a>
-                        <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
-                        <ul class="c-primary-nav__subnav c-subnav">
-                            <li
-                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="#"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Sabbath School</a>
-                            </li>
-                            <li
-                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="#"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Family Life</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="c-primary-nav__list-item has-subnav"> <a href="./blogs/"
-                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Blogs</a>
-                        <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
-                        <ul class="c-primary-nav__subnav c-subnav">
-                            <li
-                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="./category/uncategorized/"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
-                            </li>
-                            <li
-                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="./category/uncategorized/"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </nav> <!-- /.c-primary-nav -->
@@ -144,121 +218,156 @@
             <div class="c-drawer__nav-primary">
                 <nav class="c-primary-nav c-priority-nav" role="navigation">
                     <ul class="c-primary-nav__list c-priority-nav__list">
-                        <li class="c-primary-nav__list-item"> <a href="./index.html"
+                        <li class="c-primary-nav__list-item"> <a href="{% url 'home' %}"
                                 class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Home</a>
                         </li>
-                        <li class="c-primary-nav__list-item"> <a href="./contact/"
-                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">contact</a>
+    
+                        <li class="c-primary-nav__list-item has-subnav">
+                            <a href="javascript:void()"
+                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">About-Us</a>
+                            <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
+                            <ul class="c-primary-nav__subnav c-subnav">
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="#"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Mision
+                                        & Vision</a>
+                                </li>
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="#"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our
+                                        Pastors</a>
+                                </li>
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="#"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">FAG's</a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="c-primary-nav__list-item has-subnav"> <a href="./departments.html"
-                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Departments</a>
+    
+                        <li class="c-primary-nav__list-item"> <a href="{% url 'contact' %}"
+                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Membership</a>
+                        </li>
+    
+                        <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
+                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Beliefs</a>
                             <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
                             <ul class="c-primary-nav__subnav c-subnav">
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
                                     <a href="./category/uncategorized/"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Fundamental Beliefs</a>
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
                                     <a href="./category/uncategorized/"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Statement
+                                        of faith</a>
+                                </li>
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="./category/uncategorized/"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Guidelines</a>
+                                </li>
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="./category/uncategorized/"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church
+                                        Manual</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="c-primary-nav__list-item"> <a href="./contact/"
-                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">contact</a>
-                        </li>
-                        <li class="c-primary-nav__list-item"> <a href="./departments.html"
-                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Departments</a>
-                        </li>
-                        <li class="c-primary-nav__list-item has-subnav"> <a href="./blogs/"
-                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Blogs</a>
+    
+                        <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
+                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Downloads</a>
                             <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
                             <ul class="c-primary-nav__subnav c-subnav">
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
                                     <a href="./category/uncategorized/"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church Calender</a>
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
                                     <a href="./category/uncategorized/"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Newsletters</a>
+                                </li>
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="./category/uncategorized/"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Tenders</a>
+                                </li>
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="./category/uncategorized/"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Vaccancies</a>
                                 </li>
                             </ul>
+                        </li>
+    
+                        <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
+                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Resources</a>
+                            <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
+                            <ul class="c-primary-nav__subnav c-subnav">
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="./category/uncategorized/"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Lesson</a>
+                                </li>
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="./category/uncategorized/"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">E. G White Estate</a>
+                                </li>
+                                <li
+                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
+                                    <a href="./category/uncategorized/"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Media</a>
+                                </li>
+                               
+                            </ul>
+                        </li>
+    
+                        <li class="c-primary-nav__list-item"> <a href="{% url 'contact' %}"
+                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Contact</a>
                         </li>
                     </ul>
                 </nav> <!-- /.c-primary-nav -->
             </div>
             <div class="c-drawer__nav-secondary">
                 <nav class="c-secondary-nav" role="navigation">
+                    <h4 class="u-font--primary--xl u-font-weight--bold">Sub Menu</h4>
                     <ul class="c-secondary-nav__list">
-                        <li class="c-secondary-nav__list-item"> <a href="./index.html"
-                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Home</a>
+                        <li class="c-secondary-nav__list-item"> 
+                            <a href="./index.html" class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Home</a>
                         </li>
-                        <li class="c-secondary-nav__list-item"> <a href="./contact/"
-                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">contact</a>
-                        </li>
-                        <li class="c-secondary-nav__list-item has-subnav"> <a href="./departments.html"
-                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Departments</a>
-                            <span class="c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
-                            <ul class="c-secondary-nav__subnav c-subnav">
-                                <li
-                                    class="c-secondary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light">
-                                    <a href="./category/uncategorized/"
-                                        class="c-secondary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
-                                </li>
-                                <li
-                                    class="c-secondary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light">
-                                    <a href="./category/uncategorized/"
-                                        class="c-secondary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
-                                </li>
-                            </ul> <!-- /.c-secondary-nav__subnav -->
-                        </li>
-                        <li class="c-secondary-nav__list-item"> <a href="./contact/"
-                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">contact</a>
-                        </li>
-                        <li class="c-secondary-nav__list-item"> <a href="./departments.html"
-                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Departments</a>
-                        </li>
-                        <li class="c-secondary-nav__list-item has-subnav"> <a href="./blogs/"
-                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Blogs</a>
-                            <span class="c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
-                            <ul class="c-secondary-nav__subnav c-subnav">
-                                <li
-                                    class="c-secondary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light">
-                                    <a href="./category/uncategorized/"
-                                        class="c-secondary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
-                                </li>
-                                <li
-                                    class="c-secondary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light">
-                                    <a href="./category/uncategorized/"
-                                        class="c-secondary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Uncategorized</a>
-                                </li>
-                            </ul> <!-- /.c-secondary-nav__subnav -->
-                        </li>
+                        <li class="c-secondary-nav__list-item"> 
+                            <a href="./contact/" lass="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">contact</a>
+                        </li>                     
+                        
                         <li
                             class="c-secondary-nav__list-item c-secondary-nav__list-item__toggle js-toggle-menu js-toggle-search is-priority">
-                            <a href="#"
-                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">
-                                <span class="u-icon u-icon--xs u-path-fill--gray"><svg
-                                        xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10">
+                            <a href="#" class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">
+                                <span class="u-icon u-icon--xs u-path-fill--gray">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10">
                                         <title>Search</title>
-                                        <path
-                                            d="M9.91,8.5,7.43,6A4,4,0,1,0,4,8a4,4,0,0,0,2-.57L8.5,9.91ZM2,4A2,2,0,1,1,4,6,2,2,0,0,1,2,4Z"
-                                            fill="#777" />
-                                    </svg> </span>Search </a>
+                                        <path d="M9.91,8.5,7.43,6A4,4,0,1,0,4,8a4,4,0,0,0,2-.57L8.5,9.91ZM2,4A2,2,0,1,1,4,6,2,2,0,0,1,2,4Z" fill="#777" />
+                                    </svg> 
+                                </span>Search 
+                            </a>
                         </li>
                         <li
                             class="c-secondary-nav__list-item c-secondary-nav__list-item__toggle js-toggle-menu is-priority">
-                            <a href="#"
-                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">
-                                <span class="u-icon u-icon--xs u-path-fill--gray"><svg
-                                        xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10">
+                            <a href="#" class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">
+                                <span class="u-icon u-icon--xs u-path-fill--gray">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10">
                                         <title>Menu</title>
                                         <path d="M0,0H10V2H0ZM0,10H10V8H0ZM0,6H10V4H0Z" fill="#9b9b9b" />
-                                    </svg> </span>Menu </a>
+                                    </svg> 
+                                </span>Menu 
+                            </a>
                         </li>
                     </ul> <!-- /.c-secondary-nav__list -->
                 </nav> <!-- /.c-secondary-nav -->
@@ -272,7 +381,7 @@
                     </svg> </span> </a> </div> <!-- .c-drawer__logo -->
         <div class="c-drawer__about">
             <div class="c-drawer__about-left u-spacing">
-                <p>karurasda.org is a website of the Seventh-day Adventist church in [Region Name].
+                <p>karurasda.org is a website of the Seventh-day Adventist church in Nairobi Kenya.
                 </p>
                 <p>Seventh-day Adventists are devoted to helping people understand the Bible to find
                     freedom, healing, and hope in Jesus.</p>
@@ -280,15 +389,10 @@
             <div class="c-drawer__about-right u-spacing--half">
                 <div class="u-font--secondary--s u-text-transform--upper"><strong>Live
                         Service:</strong></div>
-                <p class="u-spacing--half"> <a href="./index.html" class="u-link--white">Home</a> <a href="./contact/"
-                        class="u-link--white">contact</a> <a href="./departments.html"
-                        class="u-link--white">Departments</a> <a href="./category/uncategorized/"
-                        class="u-link--white">Uncategorized</a> <a href="./category/uncategorized/"
-                        class="u-link--white">Uncategorized</a> <a href="./contact/" class="u-link--white">contact</a>
-                    <a href="./departments.html" class="u-link--white">Departments</a> <a href="./blogs/"
-                        class="u-link--white">Blogs</a> <a href="./category/uncategorized/"
-                        class="u-link--white">Uncategorized</a> <a href="./category/uncategorized/"
-                        class="u-link--white">Uncategorized</a>
+                <p class="u-spacing--half"> 
+                    <a href="./index.html" class="u-link--white">Home</a> 
+                    <a href="./contact/" class="u-link--white">contact</a> 
+                    
                 </p>
             </div>
         </div> <!-- .c-drawer__about -->
