@@ -126,3 +126,4 @@ def lesson(request):
 def media(request):
     context = {}
     return render(request, 'base/media.html', context)
+
