@@ -27,37 +27,54 @@
 
     <div id="carouselExampleControls" class="carousel slide u-space--zero--top" data-ride="carousel">
         <div class="carousel-inner">
+    
             <div class="carousel-item active">
                 <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide4.png' %}" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <div
-                        class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--3-of-7 u-shift--left--1-col--at-xxlarge">
-                        <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church</h1>
-                        <p> Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the
-                            Son, and of the Holy Ghost</p>
+                <div class="container">
+                    <!-- Show in large devices -->
+                    <div class="carousel-caption" id="largeDeviceCaption1">
+                        <h1 class="display-4">Karura Adventist Church</h1>
+                        <p class="p-2">Go ye therefore, and teach all nations, <br>baptizing them in the name of the Father, and of the Son,<br> and of the Holy Ghost</p>
+                        <p class="p-2"><a class="btn btn-lg btn-primary" href="{% url 'about' %}">Learn more</a></p>
+                    </div>
+    
+                    <!-- Show in small devices -->
+                    <div class="carousel-caption" id="smallDeviceCaption1">
+                        <h3 class="text-primary">Karura Adventist Church</h3>
                     </div>
                 </div>
             </div>
+    
             <div class="carousel-item">
-                <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide6.png' %}"
-                    alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <div
-                        class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--3-of-7 u-shift--left--1-col--at-xxlarge">
-                        <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church</h1>
-                        <p> Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the
-                            Son, and of the Holy Ghost</p>
+                <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide6.png' %}" alt="Second slide">
+                <div class="container">
+                    <!-- Show in large devices -->
+                    <div class="carousel-caption" id="largeDeviceCaption2">
+                        <h1 class="display-4">Karura Adventist Church</h1>
+                        <p class="p-2">Go ye therefore, and teach all nations, <br>baptizing them in the name of the Father, and of the Son,<br> and of the Holy Ghost</p>
+                        <p class="p-2"><a class="btn btn-lg btn-primary" href="{% url 'about' %}">Learn more</a></p>
+                    </div>
+    
+                    <!-- Show in small devices -->
+                    <div class="carousel-caption" id="smallDeviceCaption2">
+                        <h3 class="text-primary">Karura Adventist Church</h3>
                     </div>
                 </div>
             </div>
+    
             <div class="carousel-item">
                 <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide5.png' %}" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <div
-                        class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--3-of-7 u-shift--left--1-col--at-xxlarge">
-                        <h3 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church</h3>
-                        <p> Go ye therefore, and teach all nations, baptizing them in the name of the Father, and of the
-                            Son, and of the Holy Ghost</p>
+                <div class="container">
+                    <!-- Show in large devices -->
+                    <div class="carousel-caption" id="largeDeviceCaption3">
+                        <h1 class="display-4">Karura Adventist Church</h1>
+                        <p class="p-2">Go ye therefore, and teach all nations, <br>baptizing them in the name of the Father, and of the Son,<br> and of the Holy Ghost</p>
+                        <p class="p-2"><a class="btn btn-lg btn-primary" href="{% url 'about' %}">Learn more</a></p>
+                    </div>
+    
+                    <!-- Show in small devices -->
+                    <div class="carousel-caption" id="smallDeviceCaption3">
+                        <h3 class="text-primary">Karura Adventist Church</h3>
                     </div>
                 </div>
             </div>
@@ -74,10 +91,10 @@
 
     <div class="container">
         <div class="">
-            <h class="text-primary u-font-weight--bold">
-                Seek the Lord while he may be found - Isaiah 55:6 Join us every Sabbath and let’s delve together into
+            <h3 class="text-primary u-font-weight--bold">
+                "Seek the Lord while he may be found - Isaiah 55:6" Join us every Sabbath and let’s delve together into
                 the Word of God, and in praise and worship.
-            </h>
+            </h3>
         </div>
     </div>
     <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
@@ -291,5 +308,40 @@
     <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
 </main>
 <!-- /.l-main -->
+
+<script>
+    // Function to check if the device is a small device (mobile or tablet)
+    function isSmallDevice() {
+        return window.innerWidth <= 768; // Adjust the value as per your requirements
+    }
+
+    // Function to show/hide captions based on device size
+    function showHideCaptions() {
+        var largeDeviceCaptions = document.querySelectorAll("[id^='largeDeviceCaption']");
+        var smallDeviceCaptions = document.querySelectorAll("[id^='smallDeviceCaption']");
+
+        if (isSmallDevice()) {
+            for (var i = 0; i < largeDeviceCaptions.length; i++) {
+                largeDeviceCaptions[i].style.display = "none"; // Hide large device captions
+            }
+
+            for (var j = 0; j < smallDeviceCaptions.length; j++) {
+                smallDeviceCaptions[j].style.display = "block"; // Show small device captions
+            }
+        } else {
+            for (var k = 0; k < largeDeviceCaptions.length; k++) {
+                largeDeviceCaptions[k].style.display = "block"; // Show large device captions
+            }
+
+            for (var l = 0; l < smallDeviceCaptions.length; l++) {
+                smallDeviceCaptions[l].style.display = "none"; // Hide small device captions
+            }
+        }
+    }
+
+    // Call the function when the page loads and on window resize
+    window.addEventListener("load", showHideCaptions);
+    window.addEventListener("resize", showHideCaptions);
+</script>
 
 {% endblock %}
