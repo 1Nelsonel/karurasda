@@ -4,211 +4,38 @@
 
 {% load static %}
 
-<style>
-    .carousel-img {
-        width: 100% !important;
-        aspect-ratio: 5/2 !important;
-        /* object-fit: cover !important; */
-    }
-
-    .event-img {
-        width: 100% !important;
-        aspect-ratio: 2/1 !important;
-    }
-
-    .about-img {
-        width: 100% !important;
-        aspect-ratio: 2/1 !important;
-    }
-</style>
-
-<!-- main section -->
-<main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
-
-    <div id="carouselExampleControls" class="carousel slide u-space--zero--top" data-ride="carousel">
-        <div class="carousel-inner">
-    
-            <div class="carousel-item active">
-                <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide4.png' %}" alt="First slide">
-                <div class="container">
-                    <!-- Show in large devices -->
-                    <div class="carousel-caption" id="largeDeviceCaption1">
-                        <h1 class="display-4">Karura Adventist Church</h1>
-                        <p class="p-2">Go ye therefore, and teach all nations, <br>baptizing them in the name of the Father, and of the Son,<br> and of the Holy Ghost</p>
-                        <p class="p-2"><a class="btn btn-lg btn-primary" href="{% url 'about' %}">Learn more</a></p>
-                    </div>
-    
-                    <!-- Show in small devices -->
-                    <div class="carousel-caption" id="smallDeviceCaption1">
-                        <h3 class="text-primary">Karura Adventist Church</h3>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="carousel-item">
-                <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide6.png' %}" alt="Second slide">
-                <div class="container">
-                    <!-- Show in large devices -->
-                    <div class="carousel-caption" id="largeDeviceCaption2">
-                        <h1 class="display-4">Karura Adventist Church</h1>
-                        <p class="p-2">Go ye therefore, and teach all nations, <br>baptizing them in the name of the Father, and of the Son,<br> and of the Holy Ghost</p>
-                        <p class="p-2"><a class="btn btn-lg btn-primary" href="{% url 'about' %}">Learn more</a></p>
-                    </div>
-    
-                    <!-- Show in small devices -->
-                    <div class="carousel-caption" id="smallDeviceCaption2">
-                        <h3 class="text-primary">Karura Adventist Church</h3>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="carousel-item">
-                <img class="d-block carousel-img w-100" src="{% static 'images/slider/slide5.png' %}" alt="Third slide">
-                <div class="container">
-                    <!-- Show in large devices -->
-                    <div class="carousel-caption" id="largeDeviceCaption3">
-                        <h1 class="display-4">Karura Adventist Church</h1>
-                        <p class="p-2">Go ye therefore, and teach all nations, <br>baptizing them in the name of the Father, and of the Son,<br> and of the Holy Ghost</p>
-                        <p class="p-2"><a class="btn btn-lg btn-primary" href="{% url 'about' %}">Learn more</a></p>
-                    </div>
-    
-                    <!-- Show in small devices -->
-                    <div class="carousel-caption" id="smallDeviceCaption3">
-                        <h3 class="text-primary">Karura Adventist Church</h3>
-                    </div>
-                </div>
+ <!-- main start -->
+ <main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
+    <header
+        class="c-page-header c-page-header__long u-theme--background-color--dark  u-space--zero--top">
+        <div class="c-page-header__long--inner l-grid l-grid--7-col">
+            <div
+                class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--5-of-7 u-shift--left--1-col--at-xxlarge">
+                <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church </h1>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-    <div class="container">
-        <div class="">
-            <h3 class="text-primary u-font-weight--bold">
-                "Seek the Lord while he may be found - Isaiah 55:6" Join us every Sabbath and let’s delve together into
-                the Word of God, and in praise and worship.
-            </h3>
-        </div>
-    </div>
-    <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
-
+    </header>
     <section id="top"
-        class="l-main__content l-grid l-grid--7-col l-grid-wrap--6-of-7 u-spacing--double--until-xxlarge u-padding--zero--sides u-shift--left--1-col--at-xxlarge">
-        <article class="c-article l-grid-item  pl-0 ">
-            <div class="container text-center ">
-                <h3 class="u-font--primary--xl text-primary u-font-weight--bold">Events</h3>
-            </div>
+        class="l-main__content l-grid l-grid--7-col u-shift--left--1-col--at-xxlarge l-grid-wrap--6-of-7 u-spacing--double--until-xxlarge u-padding--zero--sides">
+        <article
+            class="c-article l-grid-item l-grid-item--l--4-col l-grid-item--xxl--3-col post-19 page type-page status-publish hentry">
             <div class="c-article__body">
-                <div class="text u-spacing--double u-space--double--top">
-                    <div class="c-block c-block__text  u-theme--border-color--darker u-border--left">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <img class="event-img" src="{% static 'images/slider/slide5.png' %}" alt="">
-                            </div>
-                            <div class="col-sm-5">
-                                <h3 class="u-theme--color--darker u-theme--color--darker u-font--primary--m">
-                                    <a href="#" class="c-block__title-link u-theme--link-hover--dark">
-                                        <strong>Hello world!</strong> </a>
-                                </h3>
-                                <p class="c-block__body text"> Welcome to WordPress. This is your first post. Edit or
-                                    delete it, then start writing! </p>
-                                <a href="#" class="c-block__button o-button o-button--outline">Read More
-                                    <span class="u-icon u-icon--m u-path-fill--base u-space--half--left">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20">
-                                            <title>Long right arrow</title>
-                                            <path
-                                                d="M18.29,8.59l-3.5-3.5L13.38,6.5,15.88,9H.29v2H15.88l-2.5,2.5,1.41,1.41,3.5-3.5L19.71,10Z"
-                                                fill="#9b9b9b" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="c-article__body">
-                <div class="text u-spacing--double u-space--double--top">
-                    <div class="c-block c-block__text  u-theme--border-color--darker u-border--left">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <img class="event-img" src="{% static 'images/slider/slide5.png' %}" alt="">
-                            </div>
-                            <div class="col-sm-5">
-                                <h3 class="u-theme--color--darker u-theme--color--darker u-font--primary--m">
-                                    <a href="./2023/06/27/hello-world/"
-                                        class="c-block__title-link u-theme--link-hover--dark">
-                                        <strong>Hello world!</strong> </a>
-                                </h3>
-                                <p class="c-block__body text"> Welcome to WordPress. This is your first post. Edit or
-                                    delete it, then start writing! </p>
-                                <a href="./2023/06/27/hello-world/"
-                                    class="c-block__button o-button o-button--outline">Read More
-                                    <span class="u-icon u-icon--m u-path-fill--base u-space--half--left">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20">
-                                            <title>Long right arrow</title>
-                                            <path
-                                                d="M18.29,8.59l-3.5-3.5L13.38,6.5,15.88,9H.29v2H15.88l-2.5,2.5,1.41,1.41,3.5-3.5L19.71,10Z"
-                                                fill="#9b9b9b" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="c-article__body">
-                <div class="text u-spacing--double u-space--double--top">
-                    <div class="c-block c-block__text  u-theme--border-color--darker u-border--left">
-                        <div class="row">
-                            <div class="col-sm-7">
-                                <img class="event-img" src="{% static 'images/slider/slide5.png' %}" alt="">
-                            </div>
-                            <div class="col-sm-5">
-                                <h3 class="u-theme--color--darker u-theme--color--darker u-font--primary--m">
-                                    <a href="./2023/06/27/hello-world/"
-                                        class="c-block__title-link u-theme--link-hover--dark">
-                                        <strong>Hello world!</strong> </a>
-                                </h3>
-                                <p class="c-block__body text"> Welcome to WordPress. This is your first post. Edit or
-                                    delete it, then start writing! </p>
-                                <a href="./2023/06/27/hello-world/"
-                                    class="c-block__button o-button o-button--outline">Read More
-                                    <span class="u-icon u-icon--m u-path-fill--base u-space--half--left">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20">
-                                            <title>Long right arrow</title>
-                                            <path
-                                                d="M18.29,8.59l-3.5-3.5L13.38,6.5,15.88,9H.29v2H15.88l-2.5,2.5,1.41,1.41,3.5-3.5L19.71,10Z"
-                                                fill="#9b9b9b" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="text u-spacing"> </div>
             </div>
         </article>
-        <div class="c-sidebar l-grid-item l-grid-item--l--2-col l-grid-item--xl--2-col u-padding--zero--sides">
+        <div
+            class="c-sidebar l-grid-item l-grid-item--l--2-col l-grid-item--xl--2-col u-padding--zero--sides">
             <div class="u-spacing--double u-padding--right">
                 <section
                     class="c-widget c-block-2 c-widget_block widget_search o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
                     <form role="search" method="get" action="./"
                         class="wp-block-search__button-outside wp-block-search__text-button wp-block-search">
-                        <label for="wp-block-search__input-1" class="wp-block-search__label">Search</label>
-                        <div class="wp-block-search__inside-wrapper"><input type="search" id="wp-block-search__input-1"
-                                class="wp-block-search__input" name="s" value="" placeholder="" required /><button
-                                type="submit" class="wp-block-search__button wp-element-button">Search</button>
+                        <label for="wp-block-search__input-1"
+                            class="wp-block-search__label">Search</label>
+                        <div class="wp-block-search__inside-wrapper"><input type="search"
+                                id="wp-block-search__input-1" class="wp-block-search__input"
+                                name="s" value="" placeholder="" required /><button type="submit"
+                                class="wp-block-search__button wp-element-button">Search</button>
                         </div>
                     </form>
                 </section>
@@ -217,8 +44,8 @@
                     <div class="wp-block-group is-layout-flow">
                         <h2 class="wp-block-heading">Recent Posts</h2>
                         <ul class="wp-block-latest-posts__list wp-block-latest-posts">
-                            <li><a class="wp-block-latest-posts__post-title" href="./2023/06/27/hello-world/">Hello
-                                    world!</a></li>
+                            <li><a class="wp-block-latest-posts__post-title"
+                                    href="./2023/06/27/hello-world/">Hello world!</a></li>
                         </ul>
                     </div>
                 </section>
@@ -241,107 +68,9 @@
                     </div>
                 </section>
             </div>
-        </div>
+        </div> <!-- /.c-sidebar -->
     </section>
-
-    <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
-
-    <div class="container">
-        <h3 class="text-primary u-font-weight--bold text-center">Karura Adventist Church At Glance</h3>
-    </div>
-    <section>
-        <div class="container">
-            <div class="row gx-5 align-items-center">
-                <div class="col-sm-6 order-lg-2">
-                    <div class="p-1"><img class="about-img" src="{% static 'images/slider/slide5.png' %}" alt="..." />
-                    </div>
-                </div>
-                <div class="col-sm-6 order-lg-1">
-                    <div class="p-1">
-                        <h4 class="text-primary u-font-weight--bold text-center">Our Mission</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam
-                            sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione
-                            voluptatum molestiae adipisci, beatae obcaecati.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Content section 2-->
-
-        <div class="container">
-            <div class="row gx-5 align-items-center">
-                <div class="col-sm-6">
-                    <div class="p-1"><img class="about-img" src="{% static 'images/slider/slide5.png' %}" alt="..." />
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="p-1">
-                        <h4 class="text-primary u-font-weight--bold text-center">Our Vision</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam
-                            sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione
-                            voluptatum molestiae adipisci, beatae obcaecati.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Content section 3-->
-
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-sm-6 order-sm-2">
-                    <div class="p-1"><img class="about-img" src="{% static 'images/slider/slide5.png' %}" alt="..." />
-                    </div>
-                </div>
-                <div class="col-sm-6 order-lg-1">
-                    <div class="p-1">
-                        <h3 class="text-primary u-font-weight--bold text-center">Karura Adventist Church</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam
-                            sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione
-                            voluptatum molestiae adipisci, beatae obcaecati.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
 </main>
 <!-- /.l-main -->
-
-<script>
-    // Function to check if the device is a small device (mobile or tablet)
-    function isSmallDevice() {
-        return window.innerWidth <= 768; // Adjust the value as per your requirements
-    }
-
-    // Function to show/hide captions based on device size
-    function showHideCaptions() {
-        var largeDeviceCaptions = document.querySelectorAll("[id^='largeDeviceCaption']");
-        var smallDeviceCaptions = document.querySelectorAll("[id^='smallDeviceCaption']");
-
-        if (isSmallDevice()) {
-            for (var i = 0; i < largeDeviceCaptions.length; i++) {
-                largeDeviceCaptions[i].style.display = "none"; // Hide large device captions
-            }
-
-            for (var j = 0; j < smallDeviceCaptions.length; j++) {
-                smallDeviceCaptions[j].style.display = "block"; // Show small device captions
-            }
-        } else {
-            for (var k = 0; k < largeDeviceCaptions.length; k++) {
-                largeDeviceCaptions[k].style.display = "block"; // Show large device captions
-            }
-
-            for (var l = 0; l < smallDeviceCaptions.length; l++) {
-                smallDeviceCaptions[l].style.display = "none"; // Hide small device captions
-            }
-        }
-    }
-
-    // Call the function when the page loads and on window resize
-    window.addEventListener("load", showHideCaptions);
-    window.addEventListener("resize", showHideCaptions);
-</script>
 
 {% endblock %}

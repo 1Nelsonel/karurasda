@@ -153,96 +153,116 @@
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
     }
+
+    .map {
+        width: 100% !important;
+        aspect-ratio: 2/1 !important;
+    }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
     integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
-    <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
-    
-<section class="section gray-bg" id="contactus">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="section-title ">
-                    <h2 class="">Get In Touch</h2>
-                   
+
+<main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
+    <header class="c-page-header c-page-header__long u-theme--background-color--dark  u-space--zero--top">
+        <div class="c-page-header__long--inner l-grid l-grid--7-col">
+            <div
+                class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--5-of-7 u-shift--left--1-col--at-xxlarge">
+                <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church </h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="section gray-bg" id="contactus">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="section-title ">
+                        <h2 class="">Get In Touch</h2>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-row-reverse">
+                <div class="col-md-7 col-lg-8 m-15px-tb">
+                    <div class="contact-form">
+                        <form action="/" method="post" class="contactform contact_form" id="contact_form">
+                            <div class="returnmessage valid-feedback p-15px-b"
+                                data-success="Your message has been received, We will contact you soon."></div>
+                            <div class="empty_notice invalid-feedback p-15px-b"><span>Please Fill Required Fields</span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input id="name" type="text" placeholder="Full Name" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input id="email" type="text" placeholder="Email Address" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input id="subject" type="text" placeholder="Subject" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea id="message" placeholder="Message" class="form-control"
+                                            rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="send">
+                                        <a id="send_message" class="px-btn theme" href="#"><span>Contact Us</span> <i
+                                                class="arrow"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-4 m-15px-tb">
+                    <div class="contact-name">
+                        <h5>Mail</h5>
+                        <p>info@domainname.com</p>
+                    </div>
+                    <div class="contact-name">
+                        <h5>Visit My Studio</h5>
+                        <p>Warnwe Park Streetperrine, <br>FL 33157 New York City</p>
+                    </div>
+                    <div class="contact-name">
+                        <h5>Phone</h5>
+                        <p>+01 123 654 8096</p>
+                    </div>
+                    <div class="social-share nav">
+                        <a class="dribbble" href="#">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                        <a class="behance" href="#">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a class="linkedin" href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row flex-row-reverse">
-            <div class="col-md-7 col-lg-8 m-15px-tb">
-                <div class="contact-form">
-                    <form action="/" method="post" class="contactform contact_form" id="contact_form">
-                        <div class="returnmessage valid-feedback p-15px-b"
-                            data-success="Your message has been received, We will contact you soon."></div>
-                        <div class="empty_notice invalid-feedback p-15px-b"><span>Please Fill Required Fields</span>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input id="name" type="text" placeholder="Full Name" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input id="email" type="text" placeholder="Email Address" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <input id="subject" type="text" placeholder="Subject" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <textarea id="message" placeholder="Message" class="form-control"
-                                        rows="3"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="send">
-                                    <a id="send_message" class="px-btn theme" href="#"><span>Contact Us</span> <i
-                                            class="arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-5 col-lg-4 m-15px-tb">
-                <div class="contact-name">
-                    <h5>Mail</h5>
-                    <p>info@domainname.com</p>
-                </div>
-                <div class="contact-name">
-                    <h5>Visit My Studio</h5>
-                    <p>Warnwe Park Streetperrine, <br>FL 33157 New York City</p>
-                </div>
-                <div class="contact-name">
-                    <h5>Phone</h5>
-                    <p>+01 123 654 8096</p>
-                </div>
-                <div class="social-share nav">
-                    <a class="dribbble" href="#">
-                        <i class="fab fa-dribbble"></i>
-                    </a>
-                    <a class="behance" href="#">
-                        <i class="fab fa-behance"></i>
-                    </a>
-                    <a class="linkedin" href="#">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+
+    </section>
+
+    <div>
+        <iframe class="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.907328326258!2d36.7789193793457!3d-1.2244092999999978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1802845bedb5%3A0x2d224b2bae14e2aa!2sKarura%20Adventist%20church!5e0!3m2!1sen!2ske!4v1688129568234!5m2!1sen!2ske"
+            width="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+</main>
 
-</section>
 
-<div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.907328326258!2d36.7789193793457!3d-1.2244092999999978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1802845bedb5%3A0x2d224b2bae14e2aa!2sKarura%20Adventist%20church!5e0!3m2!1sen!2ske!4v1688129568234!5m2!1sen!2ske" width="100%" height="600px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
 
 
 {% endblock %}

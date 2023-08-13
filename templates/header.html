@@ -3,30 +3,32 @@
 <style>
     .style-svg {
         width: 100% !important;
-        aspect-ratio: 10/3 !important;
+        aspect-ratio: 16/7 !important;
+        mix-blend-mode: color-dodge !important;
     }
 </style>
 <!-- header herer -->
 <header class="c-header" role="banner" id="header">
     <div class="c-header--inner">
+        <!-- Top navbar -->
         <div class="c-header__nav-secondary">
             <nav class="c-secondary-nav" role="navigation">
                 <ul class="c-secondary-nav__list">
-                    <li class="c-secondary-nav__list-item"> <a href="{% url 'giving' %}"
-                            class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Giving</a>
+                    <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
+                            class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Events</a>
                     </li>
 
                     <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
                         class="c-secondary-nav__link u-font--secondary-nav text-danger u-theme--link-hover--base">LIVE STREAM</a>
                     </li>
 
-                    <li class="c-secondary-nav__list-item"> <a href="{% url 'announcement' %}"
+                    <!-- <li class="c-secondary-nav__list-item"> <a href="{% url 'announcement' %}"
                             class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Announcement</a>
-                    </li>
+                    </li> -->
 
-                    <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
+                    <!-- <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
                         class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Prayer Request</a>
-                    </li>
+                    </li> -->
 
                     <li class="c-secondary-nav__list-item"> <a href="{% url 'blogs' %}"
                         class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">blogs</a>
@@ -43,15 +45,17 @@
                                     <path d="M0,0H10V2H0ZM0,10H10V8H0ZM0,6H10V4H0Z" fill="#9b9b9b" />
                                 </svg> </span>Menu </a>
                     </li>
-                </ul> <!-- /.c-secondary-nav__list -->
+                </ul> 
+                <!-- /.c-secondary-nav__list -->
             </nav> <!-- /.c-secondary-nav -->
         </div>
+        <!-- /.c-header__logo -->
         <div class="c-header__logo c-logo">
             <a href="{% url 'home' %}" class="c-logo__link">
-                <img class="style-svg" src="{% static 'images/2023-06-Karura_logo.png' %}" alt="">
+                <img class="style-svg" src="{% static 'images/Karura-Adventist-Logo.png' %}" alt="">
             </a>
         </div>
-        <!-- /.c-header__logo -->
+        <!-- Main navbar -->
         <div class="c-header__nav-primary">
             <nav class="c-primary-nav c-priority-nav" role="navigation">
                 <ul class="c-primary-nav__list c-priority-nav__list">
@@ -61,32 +65,30 @@
 
                     <li class="c-primary-nav__list-item has-subnav">
                         <a href="javascript:void()"
-                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">About-Us</a>
+                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">About</a>
                         <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
                         <ul class="c-primary-nav__subnav c-subnav">
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
                                 <a href="{% url 'about' %}"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Mision
-                                    & Vision</a>
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">About Our Church</a>
                             </li>
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="{% url 'pastor' %}"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our
-                                    Pastors</a>
+                                <a href="javascript:void()"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church Leaders</a>
                             </li>
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="{% url 'faq' %}"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">FAG's</a>
+                                <a href="javascript:void()"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our Ministries</a>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="c-primary-nav__list-item"> <a href="{% url 'member' %}"
+                    <!-- <li class="c-primary-nav__list-item"> <a href="{% url 'member' %}"
                             class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Membership</a>
-                    </li>
+                    </li> -->
 
                     <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
                             class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Beliefs</a>
@@ -116,28 +118,23 @@
                     </li>
 
                     <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
-                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Downloads</a>
+                            class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Media</a>
                         <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
                         <ul class="c-primary-nav__subnav c-subnav">
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="{% url 'calender' %}"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church Calender</a>
+                                <a href="javascript:void()"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Facebook Live Stream</a>
                             </li>
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="{% url 'newsletter' %}"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Newsletters</a>
+                                <a href="javascript:void()"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Photo Gallery</a>
                             </li>
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="{% url 'tender' %}"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Tenders</a>
-                            </li>
-                            <li
-                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="{% url 'vaccancy' %}"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Vaccancies</a>
+                                <a href="javascript:void()"
+                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Selected Sermons</a>
                             </li>
                         </ul>
                     </li>
@@ -192,32 +189,30 @@
     
                         <li class="c-primary-nav__list-item has-subnav">
                             <a href="javascript:void()"
-                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">About-Us</a>
+                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">About</a>
                             <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
                             <ul class="c-primary-nav__subnav c-subnav">
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
                                     <a href="{% url 'about' %}"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Mision
-                                        & Vision</a>
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">About Our Church</a>
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="{% url 'pastor' %}"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our
-                                        Pastors</a>
+                                    <a href="javascript:void()"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church Leaders</a>
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="{% url 'faq' %}"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">FAG's</a>
+                                    <a href="javascript:void()"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our Ministries</a>
                                 </li>
                             </ul>
                         </li>
     
-                        <li class="c-primary-nav__list-item"> <a href="{% url 'member' %}"
+                        <!-- <li class="c-primary-nav__list-item"> <a href="{% url 'member' %}"
                                 class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Membership</a>
-                        </li>
+                        </li> -->
     
                         <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
                                 class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Beliefs</a>
@@ -247,28 +242,23 @@
                         </li>
     
                         <li class="c-primary-nav__list-item has-subnav"> <a href="javascript:void()"
-                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Downloads</a>
+                                class="c-primary-nav__link u-font--primary-nav u-color--gray--dark u-theme--link-hover--base u-theme--border-color--base">Media</a>
                             <span class="c-primary-nav__arrow c-subnav__arrow o-arrow--down u-path-fill--gray"></span>
                             <ul class="c-primary-nav__subnav c-subnav">
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="{% url 'calender' %}"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church Calender</a>
+                                    <a href="javascript:void()"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Facebook Live Stream</a>
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="{% url 'newsletter' %}"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Newsletters</a>
+                                    <a href="javascript:void()"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Photo Gallery</a>
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="{% url 'tender' %}"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Tenders</a>
-                                </li>
-                                <li
-                                    class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="{% url 'vaccancy' %}"
-                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Vaccancies</a>
+                                    <a href="javascript:void()"
+                                        class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Selected Sermons</a>
                                 </li>
                             </ul>
                         </li>
@@ -306,50 +296,39 @@
                 <nav class="c-secondary-nav" role="navigation">
                     <h4 class="u-font--primary--xl u-font-weight--bold">Sub Menu</h4>
                     <ul class="c-secondary-nav__list">
-                        
-                        <li class="c-secondary-nav__list-item"> <a href="{% url 'giving' %}"
-                            class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Giving</a>
+                        <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
+                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Events</a>
                         </li>
-
+    
                         <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
                             class="c-secondary-nav__link u-font--secondary-nav text-danger u-theme--link-hover--base">LIVE STREAM</a>
                         </li>
-
-                        <li class="c-secondary-nav__list-item"> <a href="{% url 'announcement' %}"
+    
+                        <!-- <li class="c-secondary-nav__list-item"> <a href="{% url 'announcement' %}"
                                 class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Announcement</a>
-                        </li>
-
-                        <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
+                        </li> -->
+    
+                        <!-- <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
                             class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Prayer Request</a>
-                        </li>
-
+                        </li> -->
+    
                         <li class="c-secondary-nav__list-item"> <a href="{% url 'blogs' %}"
-                            class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Blogs</a>
+                            class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">blogs</a>
                         </li>
-                        
-                        <li
-                            class="c-secondary-nav__list-item c-secondary-nav__list-item__toggle js-toggle-menu js-toggle-search is-priority">
-                            <a href="#" class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">
-                                <span class="u-icon u-icon--xs u-path-fill--gray">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10">
-                                        <title>Search</title>
-                                        <path d="M9.91,8.5,7.43,6A4,4,0,1,0,4,8a4,4,0,0,0,2-.57L8.5,9.91ZM2,4A2,2,0,1,1,4,6,2,2,0,0,1,2,4Z" fill="#777" />
-                                    </svg> 
-                                </span>Search 
-                            </a>
-                        </li>
+    
+                       
                         <li
                             class="c-secondary-nav__list-item c-secondary-nav__list-item__toggle js-toggle-menu is-priority">
-                            <a href="#" class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">
-                                <span class="u-icon u-icon--xs u-path-fill--gray">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 10 10">
+                            <a href="#"
+                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">
+                                <span class="u-icon u-icon--xs u-path-fill--gray"><svg xmlns="http://www.w3.org/2000/svg"
+                                        viewbox="0 0 10 10">
                                         <title>Menu</title>
                                         <path d="M0,0H10V2H0ZM0,10H10V8H0ZM0,6H10V4H0Z" fill="#9b9b9b" />
-                                    </svg> 
-                                </span>Menu 
-                            </a>
+                                    </svg> </span>Menu </a>
                         </li>
-                    </ul> <!-- /.c-secondary-nav__list -->
+                    </ul> 
+                    <!-- /.c-secondary-nav__list -->
                 </nav> <!-- /.c-secondary-nav -->
             </div>
         </div> <!-- .c-drawer__nav -->

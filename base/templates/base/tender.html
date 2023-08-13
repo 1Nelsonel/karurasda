@@ -4,33 +4,73 @@
 
 {% load static %}
 
-<main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
-    <hr class="u-theme--background-color--primary u-theme--background-color--darker u-font-weight--bold p-1">
-
-    <div class="container p-3">
-        <h3 class="text-primary u-font-weight--bold text-center">Karura Adventist Church Tenders</h3>
-    </div>
-
-    <div class="container py-4">
-     
-      <div class="row align-items-md-stretch">
-        <div class="col-md-6">
-          <div class="h-100 p-5 text-white bg-dark rounded-3">
-            <h2>Change the background</h2>
-            <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then, mix and match with additional component themes and more.</p>
-            <button class="btn btn-outline-light" type="button">Example button</button>
-          </div>
+ <!-- main start -->
+ <main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
+    <header
+        class="c-page-header c-page-header__long u-theme--background-color--dark  u-space--zero--top">
+        <div class="c-page-header__long--inner l-grid l-grid--7-col">
+            <div
+                class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--5-of-7 u-shift--left--1-col--at-xxlarge">
+                <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church </h1>
+            </div>
         </div>
-        <div class="col-md-6">
-          <div class="h-100 p-5 bg-light border rounded-3">
-            <h2>Add borders</h2>
-            <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>
-            <button class="btn btn-outline-secondary" type="button">Example button</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </main>
+    </header>
+    <section id="top"
+        class="l-main__content l-grid l-grid--7-col u-shift--left--1-col--at-xxlarge l-grid-wrap--6-of-7 u-spacing--double--until-xxlarge u-padding--zero--sides">
+        <article
+            class="c-article l-grid-item l-grid-item--l--4-col l-grid-item--xxl--3-col post-19 page type-page status-publish hentry">
+            <div class="c-article__body">
+                <div class="text u-spacing"> </div>
+            </div>
+        </article>
+        <div
+            class="c-sidebar l-grid-item l-grid-item--l--2-col l-grid-item--xl--2-col u-padding--zero--sides">
+            <div class="u-spacing--double u-padding--right">
+                <section
+                    class="c-widget c-block-2 c-widget_block widget_search o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
+                    <form role="search" method="get" action="./"
+                        class="wp-block-search__button-outside wp-block-search__text-button wp-block-search">
+                        <label for="wp-block-search__input-1"
+                            class="wp-block-search__label">Search</label>
+                        <div class="wp-block-search__inside-wrapper"><input type="search"
+                                id="wp-block-search__input-1" class="wp-block-search__input"
+                                name="s" value="" placeholder="" required /><button type="submit"
+                                class="wp-block-search__button wp-element-button">Search</button>
+                        </div>
+                    </form>
+                </section>
+                <section
+                    class="c-widget c-block-3 c-widget_block o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
+                    <div class="wp-block-group is-layout-flow">
+                        <h2 class="wp-block-heading">Recent Posts</h2>
+                        <ul class="wp-block-latest-posts__list wp-block-latest-posts">
+                            <li><a class="wp-block-latest-posts__post-title"
+                                    href="./2023/06/27/hello-world/">Hello world!</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <section
+                    class="c-widget c-block-4 c-widget_block o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
+                    <div class="wp-block-group is-layout-flow">
+                        <h2 class="wp-block-heading">Recent Comments</h2>
+                        <ol class="wp-block-latest-comments">
+                            <li class="wp-block-latest-comments__comment">
+                                <article>
+                                    <footer class="wp-block-latest-comments__comment-meta"><a
+                                            class="wp-block-latest-comments__comment-author"
+                                            href="https://wordpress.org/">A WordPress Commenter</a>
+                                        on <a class="wp-block-latest-comments__comment-link"
+                                            href="./2023/06/27/hello-world/#comment-1">Hello
+                                            world!</a></footer>
+                                </article>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+            </div>
+        </div> <!-- /.c-sidebar -->
+    </section>
+</main>
+<!-- /.l-main -->
 
 {% endblock %}
