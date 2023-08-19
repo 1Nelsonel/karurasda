@@ -1,0 +1,106 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<style>
+    .gray-bg {
+        background-color: #ffff !important;
+    }
+    .ministry-img {
+        width: 100% !important;
+        aspect-ratio: 16/9 !important;
+    }
+</style>
+
+<!-- main start -->
+<main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
+    <header class="c-page-header c-page-header__long u-theme--background-color--dark  u-space--zero--top">
+        <div class="c-page-header__long--inner l-grid l-grid--7-col">
+            <div
+                class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--5-of-7 u-shift--left--1-col--at-xxlarge">
+                <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">{{event.title}}
+                </h1>
+            </div>
+        </div>
+    </header>
+
+    <!--====== EVENTS PART START ======-->
+
+    <section id="event-singel" class="pt-10 pb-10 gray-bg">
+        <div class="container">
+            <div class="events-area">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="events-left">
+                            <a href="#"><span><i class="fa fa-calendar"></i> {{event.eventDate}}</span></a>
+                            <a href="#"><span><i class="fa fa-clock-o"></i> {{event.startTime}} - {{event.endTime}}</span></a>
+                            <a href="#"><span><i class="fa fa-map-marker"></i> {{event.venue}}</span></a>
+                            <img class="ministry-img" src="{{event.image.url}}" alt="event">
+                            <p>
+                                {% autoescape off %}
+                                {{event.description|linebreaks}}
+                                {% endautoescape %}
+                            </p>
+                        </div> <!-- events left -->
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="events-right">
+                            <div class="events-coundwon bg_cover" data-overlay="8" style="background-image: url({% static 'dynamic/images/event/singel-event/coundown.jpg' %})">
+                                <div data-countdown="{{ event.eventDate|date:"Y/m/d" }}"></div>
+                                <div class="events-coundwon-btn pt-30">
+                                    <a href="javascript:void()" class="main-btn">You are welcome</a>
+                                </div>
+                            </div> <!-- events coundwon -->
+                            <div class="events-address mt-30">
+                                <ul>
+                                    <li>
+                                        <div class="singel-address">
+                                            <div class="icon">
+                                                <i class="fa fa-clock-o"></i>
+                                            </div>
+                                            <div class="cont">
+                                                <h6>Start Time</h6>
+                                                <span>{{event.startTime}}</span>
+                                            </div>
+                                        </div> <!-- singel address -->
+                                    </li>
+                                    <li>
+                                        <div class="singel-address">
+                                            <div class="icon">
+                                                <i class="fa fa-bell-slash"></i>
+                                            </div>
+                                            <div class="cont">
+                                                <h6>Finish Time</h6>
+                                                <span>{{event.endTime}}</span>
+                                            </div>
+                                        </div> <!-- singel address -->
+                                    </li>
+                                    <li>
+                                        <div class="singel-address">
+                                            <div class="icon">
+                                                <i class="fa fa-map"></i>
+                                            </div>
+                                            <div class="cont">
+                                                <h6>Address</h6>
+                                                <span>{{event.venue}}</span>
+                                            </div>
+                                        </div> <!-- singel address -->
+                                    </li>
+                                </ul>
+                                
+                            </div> <!-- events address -->
+                        </div> <!-- events right -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- events-area -->
+        </div> <!-- container -->
+    </section>
+
+    <!--====== EVENTS PART ENDS ======-->
+
+</main>
+<!-- /.l-main -->
+
+{% endblock %}

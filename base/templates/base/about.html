@@ -4,72 +4,143 @@
 
 {% load static %}
 
- <!-- main start -->
- <main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
-    <header
-        class="c-page-header c-page-header__long u-theme--background-color--dark  u-space--zero--top">
+<!-- main start -->
+<main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
+    <header class="c-page-header c-page-header__long u-theme--background-color--dark  u-space--zero--top">
         <div class="c-page-header__long--inner l-grid l-grid--7-col">
             <div
                 class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--5-of-7 u-shift--left--1-col--at-xxlarge">
-                <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church </h1>
+                <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">About Karura Adventist Church </h1>
             </div>
         </div>
     </header>
-    <section id="top"
-        class="l-main__content l-grid l-grid--7-col u-shift--left--1-col--at-xxlarge l-grid-wrap--6-of-7 u-spacing--double--until-xxlarge u-padding--zero--sides">
-        <article
-            class="c-article l-grid-item l-grid-item--l--4-col l-grid-item--xxl--3-col post-19 page type-page status-publish hentry">
-            <div class="c-article__body">
-                <div class="text u-spacing"> </div>
-            </div>
-        </article>
-        <div
-            class="c-sidebar l-grid-item l-grid-item--l--2-col l-grid-item--xl--2-col u-padding--zero--sides">
-            <div class="u-spacing--double u-padding--right">
-                <section
-                    class="c-widget c-block-2 c-widget_block widget_search o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
-                    <form role="search" method="get" action="./"
-                        class="wp-block-search__button-outside wp-block-search__text-button wp-block-search">
-                        <label for="wp-block-search__input-1"
-                            class="wp-block-search__label">Search</label>
-                        <div class="wp-block-search__inside-wrapper"><input type="search"
-                                id="wp-block-search__input-1" class="wp-block-search__input"
-                                name="s" value="" placeholder="" required /><button type="submit"
-                                class="wp-block-search__button wp-element-button">Search</button>
-                        </div>
-                    </form>
-                </section>
-                <section
-                    class="c-widget c-block-3 c-widget_block o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
-                    <div class="wp-block-group is-layout-flow">
-                        <h2 class="wp-block-heading">Recent Posts</h2>
-                        <ul class="wp-block-latest-posts__list wp-block-latest-posts">
-                            <li><a class="wp-block-latest-posts__post-title"
-                                    href="./2023/06/27/hello-world/">Hello world!</a></li>
-                        </ul>
+
+
+
+    <!--====== ABOUT PART START ======-->
+
+    <section id="about-page" class="pt-10 pb-110">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="section-title mt-50">
+                        <h5>About us</h5>
+                    </div> <!-- section title -->
+                    <div class="about-cont">
+                        <p>
+                            Karura SDA Church is a warm, loving, family-friendly congregation who seeks to embrace anyone who walks through its doors. 
+                            Whether you regularly attend a church or have never stepped foot in one in your life, you belong here. We welcome and embrace 
+                            people of all races, ages, genders, and religious backgrounds.<br>
+                            The Karura Seventh-day Adventist Church seeks to bring healing to the hurting. We are committed to the pursuit of our vision 
+                            through Evangelism, Christian Education, Multi-Generational Ministry and Service to the Community. At our church, you can 
+                            expect to: engage in uplifting worship, hear powerful, Biblical preaching, experience dynamic fellowship, and participate in 
+                            selfless service. We hope you get a glimpse of the grace and hope of Jesus Christ as you navigate our website.
+                        </p>
                     </div>
-                </section>
-                <section
-                    class="c-widget c-block-4 c-widget_block o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
-                    <div class="wp-block-group is-layout-flow">
-                        <h2 class="wp-block-heading">Recent Comments</h2>
-                        <ol class="wp-block-latest-comments">
-                            <li class="wp-block-latest-comments__comment">
-                                <article>
-                                    <footer class="wp-block-latest-comments__comment-meta"><a
-                                            class="wp-block-latest-comments__comment-author"
-                                            href="https://wordpress.org/">A WordPress Commenter</a>
-                                        on <a class="wp-block-latest-comments__comment-link"
-                                            href="./2023/06/27/hello-world/#comment-1">Hello
-                                            world!</a></footer>
-                                </article>
-                            </li>
-                        </ol>
+                </div> <!-- about cont -->
+                <div class="col-lg-7">
+                    <div class="about-image mt-50">
+                        <img src="{% static 'dynamic/images/about/about-2.jpg' %}" alt="About">
+                    </div> <!-- about imag -->
+                </div>
+            </div> <!-- row -->
+            <div class="about-items pt-60">
+                <div class="row justify-content-center">
+                    
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="about-singel-items mt-30">
+                            <h4>Our Mission</h4>
+                            <p>
+                                Make disciples of Jesus Christ who live as His loving witnesses and proclaim to all people the everlasting gospel of the Three Angels’ Messages 
+                                in preparation for His soon return (Matt 28:18-20, Acts 1:8, Rev 14:6-12).
+                            </p>
+                        </div> <!-- about singel -->
                     </div>
-                </section>
-            </div>
-        </div> <!-- /.c-sidebar -->
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="about-singel-items mt-30">
+                            <h4>Our vission</h4>
+                            <p>
+                                In harmony with Bible revelation, Seventh-day Adventists see as the climax of God’s plan the restoration of all His creation to 
+                                full harmony with His perfect will and righteousness.
+                            </p>
+                        </div> <!-- about singel -->
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="about-singel-items mt-30">
+                            <h4>Our Method</h4>
+                            <p>
+                                Guided by the Bible and the Holy Spirit, Seventh-day Adventists pursue this mission through Christ-like living, communicating, 
+                                discipling, teaching, healing, and serving.
+                            </p>
+                        </div> <!-- about singel -->
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10">
+                        <div class="about-singel-items mt-30">
+                            <h4>IDENTITY AND IMPLEMENTATION OF OUR MISSION</h4>
+                           
+                        </div> <!-- about singel -->
+                    </div>
+                    <div class="col-lg-12 col-md-10 col-sm-10">
+                        <div class="about-singel-items mt-30">
+                            <h4>Our Identity</h4>
+                            <p>
+                                The Seventh-day Adventist Church sees itself as the remnant Church of end-time Bible prophecy. Members of the Church, 
+                                individually and collectively, understand their special role as ambassadors of God’s kingdom and messengers of the 
+                                soon return of Jesus Christ. Seventh-day Adventists have enlisted as co-workers with God in His mission of reclaiming 
+                                the world from the power and presence of evil, as part of the Great Controversy between Christ and Satan.<br><br>
+                                Therefore, every aspect of a Church member’s life is influenced by the conviction that we live in the last days described 
+                                in Bible prophecy and the return of Jesus Christ is imminent. Seventh-day Adventists are called by God to live in this world. 
+                                Every action of the Christian life is done “in the name of Jesus” and to advance His kingdom.
+                            </p>
+                        </div> <!-- about singel -->
+                    </div>
+                    <div class="col-lg-12 col-md-10 col-sm-10">
+                        <div class="about-singel-items mt-30">
+                            <h4>Implementation of Our Mission</h4>
+                            <p>
+                                Seventh-day Adventists affirm the Bible as God’s infallible revelation of His will, accepting its authority in the life of 
+                                the Church and of each believer, and its foundational role for faith and doctrine. Seventh-day Adventists believe that the 
+                                Holy Spirit is the power that transforms lives and equips people with abilities to advance God’s kingdom in this world.<br><br>
+                                Called by God, guided by the Bible, and empowered by the Holy Spirit, Seventh-day Adventists, wherever we live in the world, 
+                                devote ourselves to:<br><br>
+                                <ul>
+                                    <li>
+                                        1.	Christ-Like Living—Illustrating the lordship of Jesus in our lives by moral, ethical, and social behaviors 
+                                        that are consistent with the teachings and example of Jesus.<br><br>
+                                    </li>
+                                    <li>
+                                        2.	Christ-Like Communicating—Realizing that all are called to active witness, we share through personal conversation, 
+                                        preaching, publishing, and the arts, the Bible’s message about God and the hope and salvation offered through the life, 
+                                        ministry, atoning death, resurrection, and high priestly ministry of Jesus Christ.<br><br>
+                                    </li>
+                                    <li>
+                                        3.	Christ-Like Discipling—Affirming the vital importance of continued spiritual growth and development among all who 
+                                        accept Jesus as Lord and Savior, we nurture and instruct each other in righteous living, provide training for effective 
+                                        witness, and encourage responsive obedience to God’s will.<br><br>
+                                    </li>
+                                    <li>
+                                        4.	Christ-Like Teaching—Acknowledging that development of mind and character is essential to God’s redemptive plan, 
+                                        we promote the growth of a mature understanding of and relationship to God, His Word, and the created universe.<br><br>
+                                    </li>
+                                    <li>
+                                        5.	Christ-Like Healing—Affirming the biblical principles of the well-being of the whole person, we make healthful 
+                                        living and the healing of the sick a priority and through our ministry to the poor and oppressed, cooperate with the 
+                                        Creator in His compassionate work of restoration.<br><br>
+                                    </li>
+                                    <li>
+                                        6.	Christ-Like Serving—Following the example of Jesus we commit ourselves to humble service, ministering to individuals 
+                                        and populations most affected by poverty, tragedy, hopelessness, and disease.<br><br>
+                                    </li>
+                                </ul>
+                            </p>
+                        </div> <!-- about singel -->
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- about items -->
+        </div> <!-- container -->
     </section>
+
+    <!--====== ABOUT PART ENDS ======-->
 </main>
 <!-- /.l-main -->
 

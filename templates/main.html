@@ -10,29 +10,69 @@
     <link rel="shortcut icon" href="{% static 'images/favicon--ming.png' %}">
     <!-- <link rel="shortcut icon" href="{% static 'images/favicon--tree.png' %}"> -->
     <!-- <link rel="shortcut icon" href="{% static 'images/favicon--forest.png' %}"> -->
-    
+
     <title>Karura Adventist Church</title>
     <meta name='robots' content='max-image-preview:large' />
 
-    <link rel='stylesheet' id='wp-block-library-css' href='{% static 'css/dist-block-library-style.min.css' %}' media='all' />
-    <link rel='stylesheet' id='bicb-carousel-style-css' href='{% static 'css/b-carousel-block-dist-style.css' %}' media='all' />
-    
-    <link rel='stylesheet' id='app/0-css' href='{% static 'css/alps-wordpress-v3-public-app.ad6bf3.css' %}' media='all' />
+    <link rel='stylesheet' id='wp-block-library-css' href='{% static ' css/dist-block-library-style.min.css' %}'
+        media='all' />
+    <link rel='stylesheet' id='bicb-carousel-style-css' href='{% static ' css/b-carousel-block-dist-style.css' %}'
+        media='all' />
+
+    <link rel='stylesheet' id='app/0-css' href='{% static ' css/alps-wordpress-v3-public-app.ad6bf3.css' %}'
+        media='all' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" />
-  
+
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
 
-    <link href="{% static 'DataTables/datatables.min.css' %}" rel="stylesheet"/> 
-    <link rel="stylesheet" href="{% static 'DataTables/datatables.css' %}" /> 
-    <script src="{% static 'DataTables/datatables.js' %}"></script>  
+    <link href="{% static 'DataTables/datatables.min.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'DataTables/datatables.css' %}" />
+    <script src="{% static 'DataTables/datatables.js' %}"></script>
+
+    <!-- carousel section -->
+    <link rel="stylesheet" href="{% static 'carousel/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'carousel/css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'carousel/css/style.css' %}">
+    <!-- end of carousel -->
+
+    <!-- ======================================================================= -->
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/slick.css' %}">
+
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/animate.css' %}">
+
+    <!--====== Nice Select css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/nice-select.css' %}">
+
+    <!--====== Nice Number css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/jquery.nice-number.min.css' %}">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/magnific-popup.css' %}">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/bootstrap.min.css' %}">
+
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/font-awesome.min.css' %}">
+
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/default.css' %}">
+
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/style.css' %}">
+
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="{% static 'dynamic/css/responsive.css' %}">
 </head>
 
-<body class="home blog wp-embed-responsive body has-sidebar has-sidebar--pages has-sidebar has-sidebar--posts"> 
-   
+<body class="home blog wp-embed-responsive body has-sidebar has-sidebar--pages has-sidebar has-sidebar--posts">
+
     <div id="app">
         <!doctype html>
         <html class="u-theme--ming" lang="en-US">
@@ -41,15 +81,17 @@
 
         <head>
             <title>Karura Adventist Church</title>
-            
-            <link rel="stylesheet" type="text/css" href="https://cdn.adventist.org/alps/3/3.11.10/css/main-ming.css"  media="all">
+
+            <link rel="stylesheet" type="text/css" href="https://cdn.adventist.org/alps/3/3.11.10/css/main-ming.css"
+                media="all">
 
             <!-- <link rel="stylesheet" type="text/css" href="https://cdn.adventist.org/alps/3/3.11.10/css/main-treefrog.css"  media="all"> -->
 
             <!-- <link rel="stylesheet" type="text/css" href="https://cdn.adventist.org/alps/3/3.11.10/css/main-forest.css"  media="all"> -->
-            
 
-            <script src="https://cdn.adventist.org/alps/3/3.11.10/js/head-script.min.js" type="text/javascript" async></script>
+
+            <script src="https://cdn.adventist.org/alps/3/3.11.10/js/head-script.min.js" type="text/javascript"
+                async></script>
         </head>
 
         <body class="home blog wp-embed-responsive body has-sidebar has-sidebar--pages has-sidebar has-sidebar--posts">
@@ -72,7 +114,7 @@
                     <script id='app/0-js-before'>
                         (() => { "use strict"; var r, e = {}, o = {}; function t(r) { var a = o[r]; if (void 0 !== a) return a.exports; var n = o[r] = { exports: {} }; return e[r].call(n.exports, n, n.exports, t), n.exports } t.m = e, r = [], t.O = (e, o, a, n) => { if (!o) { var s = 1 / 0; for (f = 0; f < r.length; f++) { o = r[f][0], a = r[f][1], n = r[f][2]; for (var l = !0, p = 0; p < o.length; p++)(!1 & n || s >= n) && Object.keys(t.O).every((r => t.O[r](o[p]))) ? o.splice(p--, 1) : (l = !1, n < s && (s = n)); if (l) { r.splice(f--, 1); var v = a(); void 0 !== v && (e = v) } } return e } n = n || 0; for (var f = r.length; f > 0 && r[f - 1][2] > n; f--)r[f] = r[f - 1]; r[f] = [o, a, n] }, t.n = r => { var e = r && r.__esModule ? () => r.default : () => r; return t.d(e, { a: e }), e }, t.d = (r, e) => { for (var o in e) t.o(e, o) && !t.o(r, o) && Object.defineProperty(r, o, { enumerable: !0, get: e[o] }) }, t.o = (r, e) => Object.prototype.hasOwnProperty.call(r, e), (() => { var r = { 666: 0 }; t.O.j = e => 0 === r[e]; var e = (e, o) => { var a, n, s = o[0], l = o[1], p = o[2], v = 0; if (s.some((e => 0 !== r[e]))) { for (a in l) t.o(l, a) && (t.m[a] = l[a]); if (p) var f = p(t) } for (e && e(o); v < s.length; v++)n = s[v], t.o(r, n) && r[n] && r[n][0](), r[n] = 0; return t.O(f) }, o = self.webpackChunkalps_wordpress_v3 = self.webpackChunkalps_wordpress_v3 || []; o.forEach(e.bind(null, 0)), o.push = e.bind(null, o.push.bind(o)) })() })();
                     </script>
-                    <script src='{% static 'js/alps-wordpress-v3-public-app.e4c294.js' %}' id='app/0-js'></script>
+                    <script src='{% static ' js/alps-wordpress-v3-public-app.e4c294.js' %}' id='app/0-js'></script>
                 </div> <!-- /.l-content -->
 
                 <!-- aside here -->
@@ -96,32 +138,75 @@
                     <div class="l-sabbath__overlay u-theme--background-color--base"></div>
                 </aside>
                 <!-- aside ends here -->
-                
+
             </div><!-- ./l-wrap -->
 
-            
+
         </body>
 
         </html>
     </div>
 
-    
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
- 
-    <script src='{% static 'js/dist-vendor-wp-polyfill-inert.min.js' %}' id='wp-polyfill-inert-js'></script>
-    <script src='{% static 'js/dist-vendor-regenerator-runtime.min.js' %}' id='regenerator-runtime-js'></script>
-    <script src='{% static 'js/dist-vendor-wp-polyfill.min.js' %}' id='wp-polyfill-js'></script>
-    <script src='{% static 'js/dist-vendor-react.min.js' %}' id='react-js'></script>
-    <script src='{% static 'js/dist-vendor-react-dom.min.js' %}' id='react-dom-js'></script>
-    <script src='{% static 'js/b-carousel-block-assets-js-swiper.min.js' %}' id='swiper-js'></script>
-    <script src='{% static 'js/b-carousel-block-dist-script.js' %}' id='bicb-carousel-script-js'></script>
-    <script src='{% static 'js/jquery-jquery.min.js' id='jquery-core-js' %}'></script>
-    <script src='{% static 'js/jquery-jquery-migrate.min.js' %}' id='jquery-migrate-js'></script>
+
+    <script src="{% static 'js/dist-vendor-wp-polyfill-inert.min.js' %}" id='wp-polyfill-inert-js'></script>
+    <script src="{% static 'js/dist-vendor-regenerator-runtime.min.js' %}" id='regenerator-runtime-js'></script>
+    <script src="{% static 'js/dist-vendor-wp-polyfill.min.js' %}" id='wp-polyfill-js'></script>
+    <script src="{% static 'js/dist-vendor-react.min.js' %}" id='react-js'></script>
+    <script src="{% static 'js/dist-vendor-react-dom.min.js' %}" id='react-dom-js'></script>
+    <script src="{% static 'js/b-carousel-block-assets-js-swiper.min.js' %}" id='swiper-js'></script>
+    <script src="{% static 'js/b-carousel-block-dist-script.js' %}" id='bicb-carousel-script-js'></script>
+    <script src="{% static 'js/jquery-jquery.min.js' id='jquery-core-js' %}"></script>
+    <script src="{% static 'js/jquery-jquery-migrate.min.js' %}" id='jquery-migrate-js'></script>
 
     <script src="{% static 'DataTables/datatables.min.js' %}"></script>
+    <!-- carousel section -->
+    <script src="{% static 'carousel/js/core.min.js' %}"></script>
+    <script src="{% static 'carousel/js/script.js' %}"></script>
+    <!-- end of carousel -->
+    <!-- ======================================================================= -->
+    <!--====== jquery js ======-->
+    <script src="{% static 'dynamic/js/vendor/modernizr-3.6.0.min.js' %}"></script>
+    <script src="{% static 'dynamic/js/vendor/jquery-1.12.4.min.js' %}"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="{% static 'dynamic/js/bootstrap.min.js' %}"></script>
+
+    <!--====== Slick js ======-->
+    <script src="{% static 'dynamic/js/slick.min.js' %}"></script>
+
+    <!--====== Magnific Popup js ======-->
+    <script src="{% static 'dynamic/js/jquery.magnific-popup.min.js' %}"></script>
+
+    <!--====== Counter Up js ======-->
+    <script src="{% static 'dynamic/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'dynamic/js/jquery.counterup.min.js' %}"></script>
+
+    <!--====== Nice Select js ======-->
+    <script src="{% static 'dynamic/js/jquery.nice-select.min.js' %}"></script>
+
+    <!--====== Nice Number js ======-->
+    <script src="{% static 'dynamic/js/jquery.nice-number.min.js' %}"></script>
+
+    <!--====== Count Down js ======-->
+    <script src="{% static 'dynamic/js/jquery.countdown.min.js' %}"></script>
+
+    <!--====== Validator js ======-->
+    <script src="{% static 'dynamic/js/validator.min.js' %}"></script>
+
+    <!--====== Ajax Contact js ======-->
+    <script src="{% static 'dynamic/js/ajax-contact.js' %}"></script>
+
+    <!--====== Main js ======-->
+    <script src="{% static 'dynamic/js/main.js' %}"></script>
+
+    <!--====== Map js ======-->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script> -->
+    <!-- <script src="{% static 'dynamic/js/map-script.js' %}"></script> -->
 </body>
 
 </html>

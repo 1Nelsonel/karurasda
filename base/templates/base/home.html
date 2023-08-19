@@ -4,73 +4,248 @@
 
 {% load static %}
 
- <!-- main start -->
- <main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
-    <header
-        class="c-page-header c-page-header__long u-theme--background-color--dark  u-space--zero--top">
-        <div class="c-page-header__long--inner l-grid l-grid--7-col">
-            <div
-                class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--5-of-7 u-shift--left--1-col--at-xxlarge">
-                <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church </h1>
+<style>
+  .background-image {
+    width: 100% !important;
+    aspect-ratio: 16/5 !important;
+  }
+
+  .apply-color-1 {
+    background-color: #255760 !important;
+  }
+</style>
+<!-- main start -->
+<main class="11 l-main u-spacing--double u-padding--double--bottom" role="main">
+
+  <!--====== SLIDER PART START ======-->
+
+  <section id="slider-part" class="slider-active">
+    <div class="single-slider bg_cover pt-150"
+      style="background-image: url({% static 'dynamic/images/slider/s-1.jpg' %}); width: 100%; aspect-ratio: 16/7;"
+      data-overlay="3">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-7 col-lg-9">
+            <div class="slider-cont">
+              <h1 data-animation="bounceInLeft" data-delay="1s">SDA KARURA</h1>
+              <p data-animation="fadeInUp" data-delay="1.3s">
+                "Come unto me, all ye that labour and are heavy laden, and I will give you rest." (Matthew 11:28 KJV)
+              </p>
+              <!-- <ul>
+                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="{% url 'about' %}">Read More</a></li>
+                            </ul> -->
             </div>
+          </div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div> <!-- single slider -->
+
+    <div class="single-slider bg_cover pt-150"
+      style="background-image: url({% static 'dynamic/images/slider/s-2.jpg' %}); width: 100%; aspect-ratio: 16/7;"
+      data-overlay="3">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-7 col-lg-9">
+            <div class="slider-cont">
+              <h1 data-animation="bounceInLeft" data-delay="1s">SDA KARURA</h1>
+              <p data-animation="fadeInUp" data-delay="1.3s">
+                "He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty."
+                (Psalm 91:1 KJV)
+              </p>
+              <!-- <ul>
+                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="{% url 'about' %}">Read More</a></li>
+                            </ul> -->
+            </div>
+          </div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div> <!-- single slider -->
+
+    <div class="single-slider bg_cover pt-150"
+      style="background-image: url({% static 'dynamic/images/slider/s-3.jpg' %}); width: 100%; aspect-ratio: 16/7;"
+      data-overlay="3">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-7 col-lg-9">
+            <div class="slider-cont">
+              <h1 data-animation="bounceInLeft" data-delay="1s">SDA KARURA</h1>
+              <p data-animation="fadeInUp" data-delay="1.3s">
+                "And Jesus said unto them, Come ye after me, and I will make you to become fishers of men." (Mark 1:17
+                KJV)
+              </p>
+              <!-- <ul>
+                                <li><a data-animation="fadeInUp" data-delay="1.6s" class="main-btn" href="{% url 'about' %}">Read More</a></li>
+                            </ul> -->
+            </div>
+          </div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+    </div> <!-- single slider -->
+  </section>
+
+  <!--====== SLIDER PART ENDS ======-->
+
+  <!--====== ABOUT PART START ======-->
+
+  <section id="about-part" class="pt-10 pb-5 container">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="section-title mt-10">
+            <h5>About us</h5>
+            <h2>Welcome to SDA Karura </h2>
+          </div> <!-- section title -->
+          <div class="about-cont">
+            <p>
+              Did you recently meet an Adventist? Maybe you saw an ad for an event at a local Adventist church, or drove
+              by one of the denomination’s
+              schools or hospitals. You may have just heard the word “Adventist” somewhere and want to find more about
+              what it means. <br>
+              Seventh-day Adventists are a global family of Christians who hold the Bible as the ultimate authority.
+            </p>
+            <a href="{% url 'about' %}" class="main-btn mt-10">Learn More</a>
+          </div>
+        </div> <!-- about cont -->
+        <div class="col-lg-6 offset-lg-1">
+          <div class="about-event mt-10">
+            <div class="event-title">
+              <p>
+                <a class="main-btn btn-sm" href="?year={{ current_year }}&month={{ current_month|add:" -1" }}">Past Month</a>
+                |
+                <a class="main-btn" href="?year={{ current_year }}&month={{ current_month|add:" 1" }}">Next Month</a>
+              </p>
+
+            </div>
+            <div class="event-title">
+              <h3>Upcoming events</h3>
+            </div> <!-- event title -->
+            <ul>
+              {% if events %}
+              {% for event in events%}
+              <li>
+                <div class="singel-event">
+                  <span><i class="fa fa-calendar"></i>{{event.eventDate}}</span>
+                  <a href="{% url 'event' event.slug %}">
+                    <h4>{{event.title}}</h4>
+                  </a>
+                  <span><i class="fa fa-clock-o"></i> {{event.startTime}} - {{event.endTime}}</span>
+                  <span><i class="fa fa-map-marker"></i> {{event.venue}}</span>
+                </div>
+              </li>
+              {% endfor %}
+              {% else %}
+              <li>No events found for this month.</li>
+              {% endif %}
+            </ul>
+          </div> <!-- about event -->
         </div>
-    </header>
-    <section id="top"
-        class="l-main__content l-grid l-grid--7-col u-shift--left--1-col--at-xxlarge l-grid-wrap--6-of-7 u-spacing--double--until-xxlarge u-padding--zero--sides">
-        <article
-            class="c-article l-grid-item l-grid-item--l--4-col l-grid-item--xxl--3-col post-19 page type-page status-publish hentry">
-            <div class="c-article__body">
-                <div class="text u-spacing"> </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+
+  </section>
+
+  <!--====== ABOUT PART ENDS ======-->
+
+  <!--====== WORSHIP PART START ======-->
+  <section class="pb-10 pt-10 container">
+    <div class="container">
+      <div class="apply">
+        <div class="row no-gutters">
+          <div class="col-lg-12">
+            <div class="">
+              <h3>Worship Times</h3>
             </div>
-        </article>
-        <div
-            class="c-sidebar l-grid-item l-grid-item--l--2-col l-grid-item--xl--2-col u-padding--zero--sides">
-            <div class="u-spacing--double u-padding--right">
-                <section
-                    class="c-widget c-block-2 c-widget_block widget_search o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
-                    <form role="search" method="get" action="./"
-                        class="wp-block-search__button-outside wp-block-search__text-button wp-block-search">
-                        <label for="wp-block-search__input-1"
-                            class="wp-block-search__label">Search</label>
-                        <div class="wp-block-search__inside-wrapper"><input type="search"
-                                id="wp-block-search__input-1" class="wp-block-search__input"
-                                name="s" value="" placeholder="" required /><button type="submit"
-                                class="wp-block-search__button wp-element-button">Search</button>
-                        </div>
-                    </form>
-                </section>
-                <section
-                    class="c-widget c-block-3 c-widget_block o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
-                    <div class="wp-block-group is-layout-flow">
-                        <h2 class="wp-block-heading">Recent Posts</h2>
-                        <ul class="wp-block-latest-posts__list wp-block-latest-posts">
-                            <li><a class="wp-block-latest-posts__post-title"
-                                    href="./2023/06/27/hello-world/">Hello world!</a></li>
-                        </ul>
-                    </div>
-                </section>
-                <section
-                    class="c-widget c-block-4 c-widget_block o-link-wrapper--underline u-spacing u-background-color--gray--light u-padding u-theme--border-color--darker u-border--left can-be--dark-dark">
-                    <div class="wp-block-group is-layout-flow">
-                        <h2 class="wp-block-heading">Recent Comments</h2>
-                        <ol class="wp-block-latest-comments">
-                            <li class="wp-block-latest-comments__comment">
-                                <article>
-                                    <footer class="wp-block-latest-comments__comment-meta"><a
-                                            class="wp-block-latest-comments__comment-author"
-                                            href="https://wordpress.org/">A WordPress Commenter</a>
-                                        on <a class="wp-block-latest-comments__comment-link"
-                                            href="./2023/06/27/hello-world/#comment-1">Hello
-                                            world!</a></footer>
-                                </article>
-                            </li>
-                        </ol>
-                    </div>
-                </section>
-            </div>
-        </div> <!-- /.c-sidebar -->
-    </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply-aprt" class="pb-10 pt-10 container">
+    <div class="container">
+      <div class="apply">
+        <div class="row no-gutters">
+          <div class="col-lg-6">
+            <div class="apply-cont apply-color-1">
+              <h3>Sabbath</h3>
+              <table class="table table-bordered table-light table-striped">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Time</th>
+                    <th>Program</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>9.00am-10.30am</td>
+                    <td>Sabbath School</td>
+                  </tr>
+                  <tr>
+                    <td>10.30am-11.00am </td>
+                    <td>Song Service </td>
+                  </tr>
+                  <tr>
+                    <td>11.00am-12.30Pm</td>
+                    <td>Devine Hour</td>
+                  </tr>
+                  <tr>
+                    <td>2.00PM-4.00PM </td>
+                    <td>Bible Study</td>
+                  </tr>
+                  <tr>
+                    <td>4.00PM-5.30PM </td>
+                    <td>Departmental Meetings</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div> <!-- apply cont -->
+          </div>
+          <div class="col-lg-6">
+            <div class="apply-cont apply-color-1">
+              <h3>Wednesday </h3>
+              <table class="table table-bordered table-light table-striped">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Time</th>
+                    <th>Program</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>5.30Pm-6.30Pm </td>
+                    <td>Mid-week Prayers</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>Friday</h3>
+              <table class="table table-bordered table-light table-striped">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Time</th>
+                    <th>Program</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>5.30Pm-6.30Pm </td>
+                    <td>Vespers</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="p-2">
+
+              </div>
+            </div> <!-- apply cont -->
+          </div>
+        </div>
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </section>
+
+  <!--====== APPLY PART ENDS ======-->
+
 </main>
 <!-- /.l-main -->
+
 
 {% endblock %}

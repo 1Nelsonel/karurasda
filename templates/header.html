@@ -3,9 +3,9 @@
 <style>
     .style-svg {
         width: 100% !important;
-        aspect-ratio: 16/7 !important;
-        mix-blend-mode: color-dodge !important;
+        aspect-ratio: 16/5 !important;
     }
+   
 </style>
 <!-- header herer -->
 <header class="c-header" role="banner" id="header">
@@ -14,21 +14,13 @@
         <div class="c-header__nav-secondary">
             <nav class="c-secondary-nav" role="navigation">
                 <ul class="c-secondary-nav__list">
-                    <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
+                    <li class="c-secondary-nav__list-item"> <a href="{% url 'events' %}"
                             class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Events</a>
                     </li>
 
                     <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
                         class="c-secondary-nav__link u-font--secondary-nav text-danger u-theme--link-hover--base">LIVE STREAM</a>
                     </li>
-
-                    <!-- <li class="c-secondary-nav__list-item"> <a href="{% url 'announcement' %}"
-                            class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Announcement</a>
-                    </li> -->
-
-                    <!-- <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
-                        class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Prayer Request</a>
-                    </li> -->
 
                     <li class="c-secondary-nav__list-item"> <a href="{% url 'blogs' %}"
                         class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">blogs</a>
@@ -75,12 +67,12 @@
                             </li>
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="javascript:void()"
+                                <a href="{% url 'leaders' %}"
                                     class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church Leaders</a>
                             </li>
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="javascript:void()"
+                                <a href="{% url 'ministries' %}"
                                     class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our Ministries</a>
                             </li>
                         </ul>
@@ -199,12 +191,12 @@
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="javascript:void()"
+                                    <a href="{% url 'leaders' %}"
                                         class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Church Leaders</a>
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="javascript:void()"
+                                    <a href="{% url 'ministries' %}"
                                         class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our Ministries</a>
                                 </li>
                             </ul>
@@ -296,7 +288,7 @@
                 <nav class="c-secondary-nav" role="navigation">
                     <h4 class="u-font--primary--xl u-font-weight--bold">Sub Menu</h4>
                     <ul class="c-secondary-nav__list">
-                        <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
+                        <li class="c-secondary-nav__list-item"> <a href="{% url 'events' %}"
                                 class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Events</a>
                         </li>
     
@@ -304,13 +296,7 @@
                             class="c-secondary-nav__link u-font--secondary-nav text-danger u-theme--link-hover--base">LIVE STREAM</a>
                         </li>
     
-                        <!-- <li class="c-secondary-nav__list-item"> <a href="{% url 'announcement' %}"
-                                class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Announcement</a>
-                        </li> -->
-    
-                        <!-- <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
-                            class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Prayer Request</a>
-                        </li> -->
+                        
     
                         <li class="c-secondary-nav__list-item"> <a href="{% url 'blogs' %}"
                             class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">blogs</a>
