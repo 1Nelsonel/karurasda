@@ -8,6 +8,14 @@
     .gray-bg {
         background-color: #ffff !important;
     }
+    .leader-category {
+        text-align: center !important;
+        font-weight: 700 !important;
+    }
+    .leaders-img {
+        width: 100% !important;
+        aspect-ratio: 6/7 !important;
+    }
 </style>
 
 <!-- main start -->
@@ -21,191 +29,37 @@
         </div>
     </header>
 
-    <!--====== TEACHERS PART START ======-->
+    <!--====== Leaders PART START ======-->
 
     <section id="teachers-page" class="pt-10 pb-120 gray-bg">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 col-md-10 col-sm-10">
-                    <div class="about-singel-items mt-30">
-                        <h4>Our Pastors</h4>
-                       
-                    </div> <!-- about singel -->
+                {% for category, leaders in leaders_by_category.items %}
+                <div class="col-lg-12 mt-30">
+                    <h3 class="leader-category">{{ category }}</h3>
                 </div>
+                {% for leader in leaders %}
                 <div class="col-lg-3 col-sm-6">
                     <div class="singel-teachers mt-30 text-center">
                         <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-1.jpg' %}" alt="Teachers">
+                            <img class="leaders-img" src="{{ leader.image.url }}" alt="Leaders">
                         </div>
                         <div class="cont">
-                            <a href="#">
-                                <h6>MarkMark alen</h6>
+                            <a href="javascript:void()">
+                                <h6>{{ leader.name }}</h6>
                             </a>
-                            <span>Vice chencelor</span>
+                            <span>{{ leader.position }}</span>
                         </div>
                     </div> <!-- singel teachers -->
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-2.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>David card </h6>
-                            </a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-3.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>Rebeka alig</h6>
-                            </a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-4.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>Hanna bein</h6>
-                            </a>
-                            <span>Aerobics head</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-10">
-                    <div class="about-singel-items mt-30">
-                        <h4>Our Elders</h4>
-                       
-                    </div> <!-- about singel -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-5.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>David card </h6>
-                            </a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-6.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>Mark alen</h6>
-                            </a>
-                            <span>Vice chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-7.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>Rebeka alig</h6>
-                            </a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-8.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>Hanna bein</h6>
-                            </a>
-                            <span>Aerobics head</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-10 col-md-10 col-sm-10">
-                    <div class="about-singel-items mt-30">
-                        <h4>Other Church Leaders</h4>
-                       
-                    </div> <!-- about singel -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-5.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>David card </h6>
-                            </a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-6.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>Mark alen</h6>
-                            </a>
-                            <span>Vice chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-7.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>Rebeka alig</h6>
-                            </a>
-                            <span>Pro chencelor</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="singel-teachers mt-30 text-center">
-                        <div class="image">
-                            <img src="{% static 'dynamic/images/teachers/t-8.jpg' %}" alt="Teachers">
-                        </div>
-                        <div class="cont">
-                            <a href="teachers-singel.html">
-                                <h6>Hanna bein</h6>
-                            </a>
-                            <span>Aerobics head</span>
-                        </div>
-                    </div> <!-- singel teachers -->
-                </div>
+                {% endfor %}
+                {% endfor %}
             </div> <!-- row -->
-            
         </div> <!-- container -->
     </section>
+    
 
-    <!--====== TEACHERS PART ENDS ======-->
+    <!--====== Leaders PART ENDS ======-->
 
 </main>
 <!-- /.l-main -->

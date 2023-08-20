@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from datetime import datetime
 import calendar
+from django.core.paginator import Paginator
 
 # ==================================================================
 # 1. home
@@ -46,7 +47,13 @@ def faq(request):
 # 4. Pastor
 # ==================================================================
 def leaders(request):
-    context = {}
+    leaders_by_category = Leader.objects.values('category').distinct()
+    leaders = {}
+    
+    for category in leaders_by_category:
+        leaders[category['category']] = Leader.objects.filter(category=category['category'])
+
+    context = {'leaders_by_category': leaders}
     return render(request, 'base/leaders.html', context)
 
 # ==================================================================
@@ -116,11 +123,13 @@ def media(request):
 # 14. Ministries
 # ==================================================================
 def ministries(request):
-    context = {}
+    ministries = Ministry.objects.all()
+    context = {'ministries':ministries}
     return render(request, 'base/ministries.html', context)
 
-def ministry(request):
-    context = {}
+def ministry(request, slug):
+    ministry = Ministry.objects.get(slug=slug)
+    context = {'ministry':ministry}
     return render(request, 'base/ministry.html', context)
 
 # ==================================================================
@@ -135,3 +144,19 @@ def event(request, slug):
     event = Event.objects.get(slug=slug)
     context = {'event':event}
     return render(request, 'base/event.html', context)
+
+# ==================================================================
+# 15. Events
+# ==================================================================
+def gallary(request):
+    all_galleries = Gallery.objects.all()
+    paginator = Paginator(all_galleries, 12)  # Show 4 galleries per page
+
+    page = request.GET.get('page')
+    gallaries = paginator.get_page(page)
+
+    context = {
+        'gallaries': gallaries,
+        'total_galleries': all_galleries.count(),
+    }
+    return render(request, 'base/gallary.html', context)

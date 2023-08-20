@@ -15,7 +15,8 @@ urlpatterns = [
     path('lesson/', views.lesson, name='lesson'),
     path('media/', views.media, name='media'),
     path('ministries/', views.ministries, name='ministries'),
-    path('ministry/', views.ministry, name='ministry'),
+    path('ministry/<slug:slug>/', views.ministry, name='ministry'),
     path('events/', views.events, name='events'),
     path('event/<slug:slug>/', views.event, name='event'),
+    path('gallary/', views.gallary, name='gallary'),
 ]

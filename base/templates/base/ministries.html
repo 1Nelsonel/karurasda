@@ -8,6 +8,10 @@
     .gray-bg {
         background-color: #ffff !important;
     }
+    .ministry-img {
+        width: 100% !important;
+        aspect-ratio: 4/3 !important;
+    }
 </style>
 
 <!-- main start -->
@@ -26,85 +30,28 @@
     <section id="event-page" class="pt-10 pb-10 gray-bg">
         <div class="container">
             <div class="row">
+
+                {% for ministry in ministries %}
                 <div class="col-lg-6">
                     <div class="singel-event-list mt-10">
                         <div class="event-thum">
-                            <img src="{% static 'dynamic/images/event/e-1.jpg' %}" alt="Event">
+                            <img class="ministry-img" src="{{ministry.image.url}}" alt="Event">
                         </div>
                         <div class="event-cont">
                             
-                            <a href="events-singel.html">
-                                <h4>Tech Summit</h4>
+                            <a href="{% url 'ministry' ministry.slug %}">
+                                <h4>{{ministry.name}}</h4>
                             </a>
-                            <p>Nam nec tellus a odio tincidunt auctor a ornare odionon mauris itae erat conuat</p>
+                            <p>
+                                {% autoescape off %}
+                                    {{ministry.content|truncatechars:70}}
+                                {% endautoescape %}
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="singel-event-list mt-10">
-                        <div class="event-thum">
-                            <img src="{% static 'dynamic/images/event/e-2.jpg' %}" alt="Event">
-                        </div>
-                        <div class="event-cont">
-                            <a href="events-singel.html">
-                                <h4>Tech Summit</h4>
-                            </a>
-                            <p>Nam nec tellus a odio tincidunt auctor a ornare odionon mauris itae erat conuat</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-event-list mt-10">
-                        <div class="event-thum">
-                            <img src="{% static 'dynamic/images/event/e-3.jpg' %}" alt="Event">
-                        </div>
-                        <div class="event-cont">
-                            <a href="events-singel.html">
-                                <h4>Tech Summit</h4>
-                            </a>
-                            <p>Nam nec tellus a odio tincidunt auctor a ornare odionon mauris itae erat conuat</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-event-list mt-10">
-                        <div class="event-thum">
-                            <img src="{% static 'dynamic/images/event/e-4.jpg' %}" alt="Event">
-                        </div>
-                        <div class="event-cont">
-                            <a href="events-singel.html">
-                                <h4>Tech Summit</h4>
-                            </a>
-                            <p>Nam nec tellus a odio tincidunt auctor a ornare odionon mauris itae erat conuat</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-event-list mt-10">
-                        <div class="event-thum">
-                            <img src="{% static 'dynamic/images/event/e-1.jpg' %}" alt="Event">
-                        </div>
-                        <div class="event-cont">
-                            <a href="events-singel.html">
-                                <h4>Tech Summit</h4>
-                            </a>
-                            <p>Nam nec tellus a odio tincidunt auctor a ornare odionon mauris itae erat conuat</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="singel-event-list mt-10">
-                        <div class="event-thum">
-                            <img src="{% static 'dynamic/images/event/e-2.jpg' %}" alt="Event">
-                        </div>
-                        <div class="event-cont">
-                            <a href="events-singel.html">
-                                <h4>Tech Summit</h4>
-                            </a>
-                            <p>Nam nec tellus a odio tincidunt auctor a ornare odionon mauris itae erat conuat</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
+               
             </div> <!-- row -->
             
         </div> <!-- container -->

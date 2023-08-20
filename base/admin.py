@@ -1,5 +1,8 @@
 from django.contrib import admin
 from .models import *
+from django.utils.html import format_html
+from PIL import Image
+
 
 # Register your models here.
 class CategoryAdmin(admin.ModelAdmin):
@@ -9,7 +12,6 @@ admin.site.register(Category, CategoryAdmin)
 class BlogAdmin(admin.ModelAdmin):
     list_display = ('title','category','host','description')
     prepopulated_fields = {"slug": ("title",)} #new
-    readonly_fields = ('slug',)  # Make the 'slug' field uneditable
 
 admin.site.register(Blog, BlogAdmin)
 
@@ -19,10 +21,45 @@ class EventAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
+
 @admin.register(Leader)
 class LeaderAdmin(admin.ModelAdmin):
     list_display = ('name', 'position', 'category')
-    
+
+@admin.register(Ministry)
+class MinistryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'updated', 'created')
+    search_fields = ('name', 'content')
+    prepopulated_fields = {'slug': ('name',)}
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ('display_image', )
+    list_filter = ('updated', 'created')
+    date_hierarchy = 'created'
+
+    def save_model(self, request, obj, form, change):
+        # Get the uploaded image file
+        uploaded_image = form.cleaned_data['image']
+
+        # Get the original filename and extension
+        original_filename = uploaded_image.name
+        file_extension = original_filename.split('.')[-1]
+
+        # Create a new filename with an incremental number
+        obj.image.name = f'karura-sda{Gallery.objects.count() + 1}.{file_extension}'
+
+        # Resize the uploaded image (adjust dimensions as needed)
+        max_dimension = 1000  # Set your desired maximum dimension here
+        image = Image.open(uploaded_image)
+        image.thumbnail((max_dimension, max_dimension), Image.LANCZOS)
+        image.save(obj.image.path)
+
+        super().save_model(request, obj, form, change)
+
+    def display_image(self, obj):
+        return format_html('<img src="{}" width="100" height="auto" />', obj.image.url)
+    display_image.short_description = 'Image Preview'
 
 
 admin.site.site_header = "Karura SDA Administration"

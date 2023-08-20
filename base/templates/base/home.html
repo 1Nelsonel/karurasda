@@ -11,7 +11,12 @@
   }
 
   .apply-color-1 {
-    background-color: #255760 !important;
+    background-color: #002938 !important;
+  }
+  .worship-times > h3{
+    font-weight: bolder !important;
+    text-align: center !important;
+    
   }
 </style>
 <!-- main start -->
@@ -110,9 +115,9 @@
           <div class="about-event mt-10">
             <div class="event-title">
               <p>
-                <a class="main-btn btn-sm" href="?year={{ current_year }}&month={{ current_month|add:" -1" }}">Past Month</a>
+                <a class="btn btn-warning btn-sm p-1" href="?year={{ current_year }}&month={{ current_month|add:" -1" }}">Past Month</a>
                 |
-                <a class="main-btn" href="?year={{ current_year }}&month={{ current_month|add:" 1" }}">Next Month</a>
+                <a class="btn btn-warning btn-sm p-1" href="?year={{ current_year }}&month={{ current_month|add:" 1" }}">Next Month</a>
               </p>
 
             </div>
@@ -152,7 +157,7 @@
       <div class="apply">
         <div class="row no-gutters">
           <div class="col-lg-12">
-            <div class="">
+            <div class="worship-times">
               <h3>Worship Times</h3>
             </div>
           </div>
@@ -161,11 +166,11 @@
     </div>
   </section>
 
-  <section id="apply-aprt" class="pb-10 pt-10 container">
+  <section id="apply-aprt" class="pb-10 pt-10  container">
     <div class="container">
       <div class="apply">
         <div class="row no-gutters">
-          <div class="col-lg-6">
+          <div class="col-lg-6 p-2">
             <div class="apply-cont apply-color-1">
               <h3>Sabbath</h3>
               <table class="table table-bordered table-light table-striped">
@@ -200,7 +205,7 @@
               </table>
             </div> <!-- apply cont -->
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 p-2">
             <div class="apply-cont apply-color-1">
               <h3>Wednesday </h3>
               <table class="table table-bordered table-light table-striped">
