@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.urls import reverse
+from embed_video.fields import EmbedVideoField
+
 
 # blog category
 class Category(models.Model):
@@ -38,14 +40,23 @@ class Blog(models.Model):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-
-        super().save(*args, **kwargs)
-
     def get_absolute_url(self):
         return reverse('blog-detail', kwargs={'slug': self.slug})
+    
+# blog comment
+class Comment(models.Model):    
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    user = models.CharField(max_length=255)
+    email = models.EmailField()
+    body = models.TextField()
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']
+
+    def __str__(self):
+        return self.body[0:50]
     
 # event
 class Event(models.Model):
@@ -160,3 +171,29 @@ class Gallery(models.Model):
     class Meta:
         ordering = ['-updated', '-created']
     
+# ===================================================================
+# video model
+# ===================================================================
+class Sermon(models.Model):
+    videolink = EmbedVideoField()
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']
+
+class Song(models.Model):
+    videolink = EmbedVideoField()
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']
+
+class LiveStream(models.Model):
+    videolink = EmbedVideoField()
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']

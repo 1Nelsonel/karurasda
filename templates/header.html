@@ -14,11 +14,15 @@
         <div class="c-header__nav-secondary">
             <nav class="c-secondary-nav" role="navigation">
                 <ul class="c-secondary-nav__list">
+                    <li class="c-secondary-nav__list-item"> <a href="{% url 'youtube' %}"
+                        class="c-secondary-nav__link u-font--secondary-nav text-danger u-theme--link-hover--base">YOUTUBE</a>
+                    </li>
+
                     <li class="c-secondary-nav__list-item"> <a href="{% url 'events' %}"
                             class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Events</a>
                     </li>
 
-                    <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
+                    <li class="c-secondary-nav__list-item"> <a href="{% url 'livestream' %}"
                         class="c-secondary-nav__link u-font--secondary-nav text-danger u-theme--link-hover--base">LIVE STREAM</a>
                     </li>
 
@@ -120,12 +124,12 @@
                             </li>
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="javascript:void()"
+                                <a href="{% url 'sermon' %}"
                                     class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Selected Sermons</a>
                             </li>
                             <li
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="javascript:void()"
+                                <a href="{% url 'song' %}"
                                     class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our Choir</a>
                             </li>
                         </ul>
@@ -144,11 +148,6 @@
                                 class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
                                 <a href="{% url 'egwwrittings' %}"
                                     class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">E. G White Estate</a>
-                            </li>
-                            <li
-                                class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                <a href="{% url 'media' %}"
-                                    class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Media</a>
                             </li>
                            
                         </ul>
@@ -244,12 +243,12 @@
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="javascript:void()"
+                                    <a href="{% url 'sermon' %}"
                                         class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Selected Sermons</a>
                                 </li>
                                 <li
                                     class="c-primary-nav__subnav__list-item c-subnav__list-item u-background-color--gray--light u-theme--border-color--dark">
-                                    <a href="javascript:void()"
+                                    <a href="{% url 'song' %}"
                                         class="c-primary-nav__subnav__link c-subnav__link u-color--gray--dark u-theme--link-hover--base">Our Choir</a>
                                 </li>
                             </ul>
@@ -287,7 +286,7 @@
                                 class="c-secondary-nav__link u-font--secondary-nav u-color--gray u-theme--link-hover--base">Events</a>
                         </li>
     
-                        <li class="c-secondary-nav__list-item"> <a href="javascript:void()"
+                        <li class="c-secondary-nav__list-item"> <a href="{% url 'livestream' %}"
                             class="c-secondary-nav__link u-font--secondary-nav text-danger u-theme--link-hover--base">LIVE STREAM</a>
                         </li>
     

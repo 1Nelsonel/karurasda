@@ -10,7 +10,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('livestream/', views.livestream, name='livestream'),
     path('blogs/', views.blogs, name='blogs'),
-    path('blog/', views.blog, name='blog'),    
+    path('blog/<slug:slug>/', views.blog, name='blog'),    
     path('egwwrittings/', views.egwwrittings, name='egwwrittings'),
     path('lesson/', views.lesson, name='lesson'),
     path('media/', views.media, name='media'),
@@ -19,4 +19,8 @@ urlpatterns = [
     path('events/', views.events, name='events'),
     path('event/<slug:slug>/', views.event, name='event'),
     path('gallary/', views.gallary, name='gallary'),
+    path('sermon/', views.sermon, name='sermon'),
+    path('song/', views.song, name='song'),
+    path('livestream/', views.livestream, name='livestream'),
+    path('youtube/', views.youtube, name='youtube'),
 ]

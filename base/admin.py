@@ -10,10 +10,16 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title','category','host','description')
+    list_display = ('title','category','host',)
     prepopulated_fields = {"slug": ("title",)} #new
 
 admin.site.register(Blog, BlogAdmin)
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('blog', 'user', 'email',)
+    list_filter = ('blog', 'user',)
+    search_fields = ('blog',)
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
@@ -60,6 +66,28 @@ class GalleryAdmin(admin.ModelAdmin):
     def display_image(self, obj):
         return format_html('<img src="{}" width="100" height="auto" />', obj.image.url)
     display_image.short_description = 'Image Preview'
+
+@admin.register(Sermon)
+class SermonAdmin(admin.ModelAdmin):
+    list_display = ('videolink', 'updated', 'created')
+    list_filter = ('updated', 'created')
+    search_fields = ('videolink',)
+    date_hierarchy = 'created'
+
+@admin.register(Song)
+class SongAdmin(admin.ModelAdmin):
+    list_display = ('videolink', 'updated', 'created')
+    list_filter = ('updated', 'created')
+    search_fields = ('videolink',)
+    date_hierarchy = 'created'
+
+@admin.register(LiveStream)
+class LiveStramAdmin(admin.ModelAdmin):
+    list_display = ('videolink', 'updated', 'created')
+    list_filter = ('updated', 'created')
+    search_fields = ('videolink',)
+    date_hierarchy = 'created'
+
 
 
 admin.site.site_header = "Karura SDA Administration"

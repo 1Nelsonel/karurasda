@@ -4,6 +4,8 @@
 
 {% load static %}
 
+{% load embed_video_tags %}
+
 <style>
     .gray-bg {
         background-color: #ffff !important;
@@ -20,7 +22,7 @@
         <div class="c-page-header__long--inner l-grid l-grid--7-col">
             <div
                 class="c-page-header__content c-page-header__long__content l-grid-wrap l-grid-wrap--5-of-7 u-shift--left--1-col--at-xxlarge">
-                <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Karura Adventist Church Gallery</h1>
+                <h1 class="u-font--primary--xl u-color--white u-font-weight--bold">Video Songs</h1>
             </div>
         </div>
     </header>
@@ -46,29 +48,29 @@
                 </div> <!-- row -->
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="courses-grid" role="tabpanel" aria-labelledby="courses-grid-tab">
-                        <div class="row">
-                            {% if gallaries %}
-                            {% for gallery in gallaries %}
-                            <div class="col-lg-4 col-md-6">
-                                <div class="singel-course mt-10">
-                                    <div class="thum">
-                                        <div class="image">
-                                            <img class="gal-image" src="{{gallery.image.url}}" alt="Course">
-                                        </div>
+                    <div class="row">
+                        {% if gallaries %}
+                        {% for video in gallaries %}
+                        <div class="col-lg-4 col-md-6">
+                            <div class="singel-course mt-10">
+                                <div class="thum">
+                                    <div class="image">
+                                        {% video video.videolink '1280x960'  %}
                                     </div>
-                                    <div class="cont">                                        
-                                        <div class="course-teacher">
-                                            <div class="thum">                                               
-                                            </div> 
-                                        </div>
-                                    </div>                                    
-                                </div> <!-- singel course -->
-                            </div>
-                            {% endfor %}
-                            {% else %}
-                            <p>No gallery record available</p>
-                            {% endif %}
-                        </div> <!-- row -->
+                                </div>
+                                <div class="cont">                                        
+                                    <div class="course-teacher">
+                                        <div class="thum">                                               
+                                        </div> 
+                                    </div>
+                                </div>                                    
+                            </div> <!-- singel course -->
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        <p>No media available</p>
+                        {% endif %}
+                    </div> <!-- row -->
                     </div>
                     
                 </div> <!-- tab content -->

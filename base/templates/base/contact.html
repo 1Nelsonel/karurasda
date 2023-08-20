@@ -40,41 +40,37 @@
                             <h5>Contact Us</h5>
                             <h2>Keep in touch</h2>
                         </div> <!-- section title -->
-                        <div class="main-form pt-45">
-                            <form id="contact-form" action="#" method="post" data-toggle="validator">
+                        <div class="main-form pt-5">
+                            <form id="contact-form"  method="post" data-toggle="validator">
+                                    {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="singel-form form-group">
-                                            <input name="name" type="text" placeholder="Your name"
-                                                data-error="Name is required." required="required">
+                                            {{form.name}}
                                             <div class="help-block with-errors"></div>
                                         </div> <!-- singel form -->
                                     </div>
                                     <div class="col-md-6">
                                         <div class="singel-form form-group">
-                                            <input name="email" type="email" placeholder="Email"
-                                                data-error="Valid email is required." required="required">
+                                            {{form.email}}
                                             <div class="help-block with-errors"></div>
                                         </div> <!-- singel form -->
                                     </div>
                                     <div class="col-md-6">
                                         <div class="singel-form form-group">
-                                            <input name="subject" type="text" placeholder="Subject"
-                                                data-error="Subject is required." required="required">
+                                            {{form.mobile}}
                                             <div class="help-block with-errors"></div>
                                         </div> <!-- singel form -->
                                     </div>
                                     <div class="col-md-6">
                                         <div class="singel-form form-group">
-                                            <input name="phone" type="text" placeholder="Phone"
-                                                data-error="Phone is required." required="required">
+                                            {{form.subject}}
                                             <div class="help-block with-errors"></div>
                                         </div> <!-- singel form -->
                                     </div>
                                     <div class="col-md-12">
                                         <div class="singel-form form-group">
-                                            <textarea name="messege" placeholder="Messege"
-                                                data-error="Please,leave us a message." required="required"></textarea>
+                                            {{form.body}}
                                             <div class="help-block with-errors"></div>
                                         </div> <!-- singel form -->
                                     </div>
@@ -102,7 +98,7 @@
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>P.O Box 41352-00100, Nairobi</p>
                                     </div>
                                 </div> <!-- singel address -->
                             </li>
@@ -112,8 +108,7 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>+3 123 456 789</p>
-                                        <p>+1 222 345 342</p>
+                                        <p><a href="tel:0114746151">0114746151</a></p>
                                     </div>
                                 </div> <!-- singel address -->
                             </li>
@@ -123,8 +118,7 @@
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
-                                        <p>info@yourmail.com</p>
+                                        <p><a href="mailto:info@karurasda.org">info@karurasda.org</a></p>
                                     </div>
                                 </div> <!-- singel address -->
                             </li>
@@ -134,8 +128,7 @@
                                         <i class="fa fa-globe"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>www.yoursite.com</p>
-                                        <p>www.example.com</p>
+                                        <p><a href="https://www.sdakarura.org">www.sdakarura.org</a></p>
                                     </div>
                                 </div> <!-- singel address -->
                             </li>
