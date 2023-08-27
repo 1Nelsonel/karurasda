@@ -52,13 +52,28 @@ class GalleryAdmin(admin.ModelAdmin):
         original_filename = uploaded_image.name
         file_extension = original_filename.split('.')[-1]
 
-        # Create a new filename with an incremental number
-        obj.image.name = f'karura-sda{Gallery.objects.count() + 1}.{file_extension}'
-
-        # Resize the uploaded image (adjust dimensions as needed)
-        max_dimension = 1000  # Set your desired maximum dimension here
+        # Open the image using PIL
         image = Image.open(uploaded_image)
-        image.thumbnail((max_dimension, max_dimension), Image.LANCZOS)
+
+        # Calculate the desired width and height for a 16:9 aspect ratio
+        desired_width = 16
+        desired_height = 9
+        max_dimension = 1000  # Set your desired maximum dimension here
+
+        # Calculate the new dimensions while maintaining the aspect ratio
+        width, height = image.size
+        if width / desired_width > height / desired_height:
+            new_width = max_dimension
+            new_height = int((max_dimension * height) / width)
+        else:
+            new_height = max_dimension
+            new_width = int((max_dimension * width) / height)
+
+        # Resize the image to the calculated dimensions
+        image.thumbnail((new_width, new_height), Image.LANCZOS)
+
+        # Save the resized image with the new filename
+        obj.image.name = f'karura-sda{Gallery.objects.count() + 1}.{file_extension}'
         image.save(obj.image.path)
 
         super().save_model(request, obj, form, change)
@@ -88,6 +103,35 @@ class LiveStramAdmin(admin.ModelAdmin):
     search_fields = ('videolink',)
     date_hierarchy = 'created'
 
+@admin.register(Carousel)
+class CarouselAdmin(admin.ModelAdmin):
+    list_display = ('title', 'subtitle', 'created')
+    list_filter = ('updated', 'created')
+    search_fields = ('title', 'subtitle')
+    list_per_page = 20
+
+    def save_model(self, request, obj, form, change):
+        # Get the uploaded image file
+        uploaded_image = form.cleaned_data['image']
+
+        # Get the original filename and extension
+        original_filename = uploaded_image.name
+        file_extension = original_filename.split('.')[-1]
+
+        # Create a new filename with an incremental number
+        obj.image.name = f'karura-sda{Gallery.objects.count() + 1}.{file_extension}'
+
+        # Resize the uploaded image (adjust dimensions as needed)
+        max_dimension = 1000  # Set your desired maximum dimension here
+        image = Image.open(uploaded_image)
+        image.thumbnail((max_dimension, max_dimension), Image.LANCZOS)
+        image.save(obj.image.path)
+
+        super().save_model(request, obj, form, change)
+
+    def display_image(self, obj):
+        return format_html('<img src="{}" width="100" height="auto" />', obj.image.url)
+    display_image.short_description = 'Image Preview'
 
 
 admin.site.site_header = "Karura SDA Administration"

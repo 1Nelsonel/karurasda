@@ -38,7 +38,8 @@
                             <a href="#"><span><i class="fa fa-clock-o"></i> {{event.startTime}} - {{event.endTime}}</span></a>
                             <a href="#"><span><i class="fa fa-map-marker"></i> {{event.venue}}</span></a>
                             <img class="ministry-img" src="{{event.image.url}}" alt="event">
-                            <p>
+                            <h3 class="u-font--primary--xl u-color--dark u-font-weight--bold text-underline">Topic: {{event.topic}}</h3>
+                            <p class="mt-0">
                                 {% autoescape off %}
                                 {{event.description|linebreaks}}
                                 {% endautoescape %}

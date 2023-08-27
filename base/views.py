@@ -5,11 +5,13 @@ import calendar
 from django.core.paginator import Paginator
 from .forms import CommentForm, ContactForm
 from django.contrib import messages
+from django.db.models import Q
 
 # ==================================================================
 # 1. home
 # ==================================================================
 def home(request):
+    carousels = Carousel.objects.all()
     today = datetime.today()
     current_year = today.year
     current_month = today.month
@@ -28,6 +30,7 @@ def home(request):
         'current_year': year,
         'current_month': month,
         'current_month_name': calendar.month_name[month],  # Get month name
+        'carousels': carousels
     }
     return render(request, 'base/home.html', context)
 
@@ -182,7 +185,25 @@ def event(request, slug):
 # ==================================================================
 def gallary(request):
     all_galleries = Gallery.objects.all()
-    paginator = Paginator(all_galleries, 12)  # Show 4 galleries per page
+    activities =  Event.objects.all()
+    ministries =  Ministry.objects.all()
+
+    # Filter by ministry
+    ministry_id = request.GET.get('ministry')
+    if ministry_id:
+        all_galleries = all_galleries.filter(department_id=ministry_id)
+
+    # Filter by activity
+    activity_id = request.GET.get('activity')
+    if activity_id:
+        all_galleries = all_galleries.filter(activity_id=activity_id)
+
+    # Filter by date
+    date = request.GET.get('date')
+    if date:
+        all_galleries = all_galleries.filter(date=date)
+
+    paginator = Paginator(all_galleries, 12)  # Show 12 galleries per page
 
     page = request.GET.get('page')
     gallaries = paginator.get_page(page)
@@ -190,6 +211,8 @@ def gallary(request):
     context = {
         'gallaries': gallaries,
         'total_galleries': all_galleries.count(),
+        'activities': activities,
+        'ministries': ministries
     }
     return render(request, 'base/gallary.html', context)
 
@@ -198,6 +221,24 @@ def gallary(request):
 # ==================================================================
 def sermon(request):
     all_galleries = Sermon.objects.all()
+    activities =  Event.objects.all()
+    ministries =  Ministry.objects.all()
+
+    # Filter by ministry
+    ministry_id = request.GET.get('ministry')
+    if ministry_id:
+        all_galleries = all_galleries.filter(department_id=ministry_id)
+
+    # Filter by activity
+    activity_id = request.GET.get('activity')
+    if activity_id:
+        all_galleries = all_galleries.filter(activity_id=activity_id)
+
+    # Filter by date
+    date = request.GET.get('date')
+    if date:
+        all_galleries = all_galleries.filter(date=date)
+
     paginator = Paginator(all_galleries, 12)  # Show 4 galleries per page
 
     page = request.GET.get('page')
@@ -206,6 +247,8 @@ def sermon(request):
     context = {
         'gallaries': gallaries,
         'total_galleries': all_galleries.count(),
+        'activities': activities,
+        'ministries': ministries
     }
     return render(request, 'base/sermon.html', context)
 
@@ -214,6 +257,24 @@ def sermon(request):
 # ==================================================================
 def song(request):
     all_galleries = Song.objects.all()
+    activities =  Event.objects.all()
+    ministries =  Ministry.objects.all()
+
+    # Filter by ministry
+    ministry_id = request.GET.get('ministry')
+    if ministry_id:
+        all_galleries = all_galleries.filter(department_id=ministry_id)
+
+    # Filter by activity
+    activity_id = request.GET.get('activity')
+    if activity_id:
+        all_galleries = all_galleries.filter(activity_id=activity_id)
+
+    # Filter by date
+    date = request.GET.get('date')
+    if date:
+        all_galleries = all_galleries.filter(date=date)
+
     paginator = Paginator(all_galleries, 12)  # Show 4 galleries per page
 
     page = request.GET.get('page')
@@ -222,6 +283,8 @@ def song(request):
     context = {
         'gallaries': gallaries,
         'total_galleries': all_galleries.count(),
+        'activities': activities,
+        'ministries': ministries
     }
     return render(request, 'base/song.html', context)
 

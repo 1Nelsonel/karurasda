@@ -63,6 +63,7 @@ class Event(models.Model):
     title = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(null=False, unique=True, db_index=True)
     venue = models.CharField(max_length=100, db_index=True)
+    topic = models.CharField(max_length=255, null=True, db_index=True)
     eventDate = models.DateField()
     startTime = models.TimeField()
     endTime = models.TimeField()
@@ -165,6 +166,9 @@ class Contact(models.Model):
 # ===================================================================
 class Gallery(models.Model):
     image = models.ImageField(upload_to='gallery')
+    activity = models.ForeignKey(Event, null=True, db_index=True, on_delete=models.CASCADE,blank=True)
+    department = models.ForeignKey(Ministry, on_delete=models.CASCADE, null=True,blank=True)
+    date = models.DateField(null=True)
     updated = models.DateTimeField(auto_now=True, null=True)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -176,6 +180,9 @@ class Gallery(models.Model):
 # ===================================================================
 class Sermon(models.Model):
     videolink = EmbedVideoField()
+    activity = models.ForeignKey(Event, null=True, db_index=True, on_delete=models.CASCADE,blank=True)
+    department = models.ForeignKey(Ministry, on_delete=models.CASCADE, null=True,blank=True)
+    date = models.DateField(null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -184,6 +191,9 @@ class Sermon(models.Model):
 
 class Song(models.Model):
     videolink = EmbedVideoField()
+    activity = models.ForeignKey(Event, null=True, db_index=True, on_delete=models.CASCADE,blank=True)
+    department = models.ForeignKey(Ministry, on_delete=models.CASCADE, null=True,blank=True)
+    date = models.DateField(null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -197,3 +207,17 @@ class LiveStream(models.Model):
 
     class Meta:
         ordering = ['-updated', '-created']
+
+# Carousel
+class Carousel(models.Model):
+    title = models.CharField(max_length=200, db_index=True)    
+    subtitle = models.CharField(max_length=255, null=True)
+    image = models.ImageField(upload_to='static/carousel', null=True)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']
+
+    def __str__(self):
+        return self.title[0:50]
