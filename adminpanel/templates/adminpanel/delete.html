@@ -1,0 +1,53 @@
+{% extends 'main-dash.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+      <div class="row justify-content-center">
+        
+
+        <div class="col-lg-8">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Update</h5>
+
+              <!-- Vertical Form -->
+              <form class="row g-3" method="POST">
+                {% csrf_token %}
+                <div class="col-12">
+                    <h3>Are you sure want to delete "{{obj}}"?</h3>
+                </div>
+                
+                
+                <div class="text-center">
+                    <input class="btn btn-danger" type="submit" value="Confirm" />
+                    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Cancel</a>
+                </div>
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+
+{% endblock %}

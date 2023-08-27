@@ -1,0 +1,67 @@
+{% extends 'main-dash.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Data Tables</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+                <li class="breadcrumb-item">Tables</li>
+                <li class="breadcrumb-item active">Data</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="card top-selling overflow-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Family</h5>
+
+                        {% include 'messages.html' %}
+                        
+                        <!-- Table with stripped rows -->
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">families</th>
+                                    <th scope="col">Members</th>
+                                    <th scope="col">Update</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for family in families %}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td>{{family.name}}</td>
+                                    <td>{{ family.member_count }}</td>
+                                    <td><a class="btn btn-primary" href="{% url 'updateFamily' family.slug %}">Update</a></td>
+                                    <td><a class="btn btn-danger" href="{% url 'deleteFamily' family.slug %}">Delete</a></td>
+                                </tr>
+                                {% endfor %}
+                               
+                            </tbody>
+                        </table>
+                        <!-- End Table with stripped rows -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+
+{% endblock %}

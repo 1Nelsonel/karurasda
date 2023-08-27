@@ -221,3 +221,47 @@ class Carousel(models.Model):
 
     def __str__(self):
         return self.title[0:50]
+
+# ===================================================================
+# family
+# ===================================================================
+class Family(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True, db_index=True)  # Use SlugField instead of AutoSlugField
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']
+
+    def __str__(self):
+        return self.name[0:50]
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+
+        super().save(*args, **kwargs)
+
+# ===================================================================
+# members model
+# ===================================================================
+class Member(models.Model):
+    name = models.CharField(max_length=100, unique=True, db_index=True)
+    slug = models.SlugField(max_length=100, unique=True, db_index=True)  # Use SlugField instead of AutoSlugField
+    family = models.ForeignKey(Family, on_delete=models.SET_NULL, null=True)
+    memberNumber = models.CharField(max_length=100, db_index=True)
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-updated', '-created']
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+
+        super().save(*args, **kwargs)

@@ -1,0 +1,55 @@
+{% extends 'main-dash.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Form Layouts</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+          <li class="breadcrumb-item">Family</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+      <div class="row justify-content-center">
+        
+
+        <div class="col-lg-8">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Add Family</h5>
+
+              <!-- Vertical Form -->
+              <form class="row g-3" method="POST">
+                {% csrf_token %}
+                <div class="col-12">
+                  <label for="inputNanme4" class="form-label">Your Name</label>
+                    {{form.name}}
+                </div>
+                
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'main-dash.html' %}
+
+{% block content %}
+
+{% load static %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Data Tables</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+                <li class="breadcrumb-item active">Members</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="">
+                    {% for contact in contacts %}
+                    <div class="message-item">
+                        <div>
+                            <div>
+                                <h6>{{contact.name}}</h6>
+                                <h7>{{contact.mobile}} - {{contact.email}}</h7>
+                                <p>{{contact.body}}</p>
+                                <p>{{contact.created|timesince}} ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div><!-- End Messages Dropdown Items -->
+
+            </div>
+        </div>
+    </section>
+</main>
+
+
+{% endblock %}

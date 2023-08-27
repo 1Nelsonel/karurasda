@@ -133,6 +133,15 @@ class CarouselAdmin(admin.ModelAdmin):
         return format_html('<img src="{}" width="100" height="auto" />', obj.image.url)
     display_image.short_description = 'Image Preview'
 
+@admin.register(Family)
+class FamilyAdmin(admin.ModelAdmin):
+    list_display = ('name','slug', 'updated', 'created')
+
+@admin.register(Member)
+class MemberAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug', 'family', 'memberNumber', 'updated', 'created')
+    search_fields = ('name', 'family', 'admision')
+
 
 admin.site.site_header = "Karura SDA Administration"
 admin.site.site_title = "Karura SDA Admin Portal"

@@ -2,62 +2,127 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- login23:11-->
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/broghtminds.png' %}">
-    <title>Login | Bright Minds</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
-    <!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Dashboard | KCAUSDA Church</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'images/favicon--bluejay.png' %}">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+    <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body>
-    <div class="main-wrapper account-wrapper">
-        <div class="account-page">
-			<div class="account-center">
-				<div class="account-box">
-                    <form method="POST" class="form-signin">
+    
+    <main>
+        <div class="container">
+    
+          <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-6 d-flex flex-column align-items-center justify-content-center">
+    
+                  <div class="d-flex justify-content-center py-4">
+                    <a href="index.html" class="logo d-flex align-items-center w-auto">
+                        <img class="style-svg" src="{% static 'images/kcausda.png' %}" alt="">
+                      <span class="d-none d-lg-block">KCAUSDA Church</span>
+                    </a>
+                  </div><!-- End Logo -->
+    
+                  <div class="card mb-3">
+    
+                    <div class="card-body">
+    
+                      <div class="pt-4 pb-2">
+                        <h5 class="card-title text-center pb-0 fs-4">Login Here</h5>
+                        
+                      </div>
+    
+                      <form class="row g-3" method="POST">
                         {% csrf_token %}
-						<div class="account-logo">
-                            <a href="#">
-                                <img src="{% static 'images/Karura-Adventist-Logo.png' %}" alt="betecha_logo">
-                            </a>
+    
+                        <div class="col-12">
+                          <label for="yourUsername" class="form-label">Username</label>
+                          <div class="input-group ">
+                            
+                            <input type="text" name="username" class="form-control"  required>
+                          </div>
                         </div>
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" name="username" autofocus="" class="form-control">
+    
+                        <div class="col-12">
+                          <label for="yourPassword" class="form-label">Password</label>
+                          <input type="password" name="password" class="form-control"  required>
+                          
                         </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="password" class="form-control">
+    
+                        
+                        <div class="col-12">
+                          <button class="btn btn-primary w-100" type="submit">Login</button>
                         </div>
-                        <!-- <div class="form-group text-right">
-                            <a href="forgot-password.html">Forgot your password?</a>
-                        </div> -->
-                        <div class="form-group text-center">
-                            <button type="submit" class="btn btn-primary account-btn">Login</button>
-                        </div>
-                        <!-- <div class="text-center register-link">
-                            Don’t have an account? <a href="register.html">Register Now</a>
-                        </div> -->
-                    </form>
+                        
+                      </form>
+    
+                    </div>
+                  </div>
+    
+                  <div class="credits">
+                     Designed by <a class="text-center" href="https://wwww.nelsoneltech.co.ke">NelsonelTech Solutions Ltd.</a>
+                  </div>
+    
                 </div>
-			</div>
+              </div>
+            </div>
+    
+          </section>
+    
         </div>
-    </div>
-    <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
-	<script src="{% static 'assets/js/popper.min.js' %}"></script>
-    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/js/app.js' %}"></script>
+      </main><!-- End #main -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/chart.js/chart.umd.js' %}"></script>
+    <script src="{% static 'assets/vendor/echarts/echarts.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/quill/quill.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
+    <script src="{% static 'assets/vendor/tinymce/tinymce.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
 </body>
 
-
-<!-- login23:12-->
 </html>
