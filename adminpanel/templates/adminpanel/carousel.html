@@ -4,6 +4,12 @@
 
 {% load static %}
 
+<style>
+    .car {
+        width: 100% !important;
+        aspect-ratio: 5/3 !important;
+    }
+</style>
 
 <main id="main" class="main">
 
@@ -53,8 +59,8 @@
             <div class="col-sm-4">
 
                 <div class="card">
-                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                        <img class="" src="{{carousel.image.url}}" width="100%" alt="sda karura image">
+                    <div class="card-body  pt-4 d-flex flex-column align-items-center">
+                        <img class="car" src="{{carousel.image.url}}" alt="sda karura image">
                         <h4>{{carousel.name}}</h4>
                         <div class="p-2">
                             <a class="btn btn-primary" href="{% url 'update_carousel' carousel.pk %}">Update</a>
