@@ -179,7 +179,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-gem"></i><span>Blogs</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-book"></i><span>Blogs</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -200,51 +200,55 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="{% url 'patron_list' %}">
                 <i class="bi bi-person"></i>
-                <span>Patrons</span>
+                <span>Pastors/Leaders</span>
             </a>
         </li><!-- End Profile Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{% url 'video_list' %}">
-                <i class="bi bi-question-circle"></i>
+                <i class="bi bi-speaker-fill"></i>
                 <span>Media And Video</span>
             </a>
         </li><!-- End F.A.Q Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{% url 'gallary_list' %}">
-                <i class="bi bi-envelope"></i>
+                <i class="bi bi-images"></i>
                 <span>Gallary</span>
             </a>
         </li><!-- End Contact Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-card-list"></i>
-                <span>Mission</span>
+            <a class="nav-link collapsed" href="{% url 'sermon_list' %}">
+                <i class="bi bi-speaker"></i>
+                <span>Sermon</span>
             </a>
-        </li><!-- End Register Page Nav -->
+        </li>
+        <!-- End Register Page Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-card-list"></i>
-                <span>Calender</span>
+            <a class="nav-link collapsed" href="{% url 'carousel' %}">
+                <i class="bi bi-collection-play"></i>
+                <span>Carousel</span>
             </a>
-        </li><!-- End Register Page Nav -->
+        </li>
+        <!-- End Register Page Nav -->
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link collapsed" href="#">
                 <i class="bi bi-box-arrow-in-right"></i>
                 <span>Giving</span>
             </a>
-        </li><!-- End Login Page Nav -->
+        </li> -->
+        <!-- End Login Page Nav -->
 
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link collapsed" href="#">
                 <i class="bi bi-dash-circle"></i>
                 <span>Messages</span>
             </a>
-        </li><!-- End Error 404 Page Nav -->
+        </li> -->
+        <!-- End Error 404 Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{% url 'live_video_list' %}">

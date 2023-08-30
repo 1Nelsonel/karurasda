@@ -38,15 +38,22 @@
                             </thead>
                             <tbody>
                                 {% for blog in blogs %}
-                                <tr>
-                                    <th scope="row">{{ forloop.counter }}</th>
-                                    <td>{{blog.title}}</td>
-                                    <td>{{ blog.created }}</td>
-                                    <td><a class="btn btn-primary" href="{% url 'blog_update' blog.slug %}">Update</a></td>
-                                    <td><a class="btn btn-danger" href="{% url 'blog_delete' blog.slug %}">Delete</a></td>
-                                </tr>
+                                    <tr>
+                                        <th scope="row">{{ forloop.counter }}</th>
+                                        <td>{{blog.title}}</td>
+                                        <td>{{ blog.created }}</td>
+                                        {% if blog.slug %}
+                                            <td><a class="btn btn-primary" href="{% url 'blog-update' blog.slug %}">Update</a></td>
+                                        {% else %}
+                                            <td>No slug</td>
+                                        {% endif %}
+                                        {% if blog.slug %}
+                                            <td><a class="btn btn-danger" href="{% url 'blog-delete' blog.slug %}">Delete</a></td>
+                                        {% else %}
+                                            <td>No slug</td>
+                                        {% endif %}
+                                    </tr>
                                 {% endfor %}
-                               
                             </tbody>
                         </table>
                         <!-- End Table with stripped rows -->

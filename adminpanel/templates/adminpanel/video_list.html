@@ -59,10 +59,10 @@
                         {% video video.videolink '100% x 300' %}
                         <h5>{{video.name}}</h5>
                         <div class="p-2">
-                            <a class="btn btn-primary" href="{% url 'video_update' video.slug %}">Update</a>
+                            <a class="btn btn-primary" href="{% url 'video_update' video.pk %}">Update</a>
                         </div>
                         <div class="p-2">
-                            <a class="btn btn-danger" href="{% url 'video_delete' video.slug %}">Delete</a>
+                            <a class="btn btn-danger" href="{% url 'video_delete' video.pk %}">Delete</a>
                         </div>
                         
                     </div>

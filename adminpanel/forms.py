@@ -30,7 +30,7 @@ class EventForm(forms.ModelForm):
 
         # If the form is used for adding, make all fields required
         if self.is_adding:
-            name = cleaned_data.get('name')
+            title = cleaned_data.get('title')
             eventDate = cleaned_data.get('startTime')
             eventDate = cleaned_data.get('startTime')
             endTime = cleaned_data.get('endTime')
@@ -38,8 +38,8 @@ class EventForm(forms.ModelForm):
             venue = cleaned_data.get('venue')
             topic = cleaned_data.get('topic')
 
-            if not name:
-                self.add_error('name', 'Please enter an event name.')
+            if not title:
+                self.add_error('title', 'Please enter an event title.')
             if not eventDate:
                 self.add_error('date', 'Please select a date.')
             if not eventDate:
@@ -66,8 +66,8 @@ class BlogForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter blog Name'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control', 'placeholder': 'blog post image'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write Message Here...'}),
-            'host': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write host name Here...'}),
-            'category': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Write category name Here...'}),
+            'host': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Write host name Here...'}),
+            'category': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Write category name Here...'}),
 
         }
 
@@ -78,7 +78,7 @@ class BlogForm(forms.ModelForm):
         if self.is_adding:
             title = cleaned_data.get('title')
             image = cleaned_data.get('image')
-            content = cleaned_data.get('content')
+            description = cleaned_data.get('description')
             host = cleaned_data.get('host')
             category = cleaned_data.get('category')
 
@@ -86,8 +86,8 @@ class BlogForm(forms.ModelForm):
                 self.add_error('title', 'Please enter a blog name.')
             if not image:
                 self.add_error('image', 'Please upload an image.')
-            if not content:
-                self.add_error('content', 'Please write a message.')
+            if not description:
+                self.add_error('description', 'Please write a message.')
             if not host:
                 self.add_error('host', 'Please enter host name.')
             if not category:
@@ -227,7 +227,58 @@ class VideoForm(forms.ModelForm):
             'videolink': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Enter video link'}),
             'department': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select department Name'}),
             'activity': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select activity Name'}),
-            'date': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select date'}),
+            'date': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Select date','type':'date'}),
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+
+        # If the form is used for adding, make the 'name' field required
+        if self.is_adding:
+            name = cleaned_data.get('name')
+            department = cleaned_data.get('department')
+            activity = cleaned_data.get('activity')
+            date = cleaned_data.get('date')
+            if not name:
+                self.add_error('name', 'Please enter a video name.')
+            if not department:
+                self.add_error('department', 'Please enter a department name.')
+            if not activity:
+                self.add_error('activity', 'Please enter a activity name.')
+            if not date:
+                self.add_error('date', 'Please enter a activity name.')
+        # Handle video field separately as optional
+        videolink = cleaned_data.get('videolink')
+        if videolink:
+            if not self.is_valid_url(videolink):
+                self.add_error('video', 'Please enter a valid video URL.')
+
+    def is_valid_url(self, url):
+        try:
+            url_validator = URLValidator()
+            url_validator(url)
+            backend = detect_backend(url)
+            if not backend:
+                return False
+        except ValidationError:
+            return False
+
+        return True
+    
+class SermonForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.is_adding = 'instance' not in kwargs  # Check if the form is used for adding or updating
+
+    class Meta:
+        model = Sermon
+        fields = ['videolink','department','activity','date' ]
+
+        widgets = {
+            'videolink': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Enter video link'}),
+            'department': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select department Name'}),
+            'activity': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select activity Name'}),
+            'date': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Select date','type':'date'}),
         }
 
     def clean(self):
@@ -277,9 +328,9 @@ class GallaryForm(forms.ModelForm):
 
         widgets = {
             'image': forms.ClearableFileInput(attrs={'class': 'form-control', 'placeholder': 'image'}),
-            'department': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select department Name'}),
+            'department': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select department Name', 'type': 'select'}),
             'activity': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select activity Name'}),
-            'date': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Select date'}),
+            'date': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Select date', 'type': 'date'}),
         }
 
     def clean(self):
@@ -320,3 +371,35 @@ class LiveVideoForm(forms.ModelForm):
 
             if not self.is_valid_url(videolink):
                 self.add_error('video', 'Please enter a valid video URL.')
+
+
+class CarouselForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.is_adding = 'instance' not in kwargs  # Check if the form is used for adding or updating
+        
+    class Meta:
+        model = Carousel
+        fields = ['title', 'subtitle', 'image']
+
+        widgets = {            
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Carousel Name'}),
+            'subtitle': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter carousel subtitle'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control', 'placeholder': 'image'}),
+            
+        }
+    def clean(self):
+        cleaned_data = super().clean()
+
+        # If the form is used for adding, make the 'name' field required
+        if self.is_adding:
+            title = cleaned_data.get('title')
+            subtitle = cleaned_data.get('subtitle')
+            image = cleaned_data.get('image')
+
+            if not title:
+                self.add_error('title', 'Please enter a carousel name.')
+            if not subtitle:
+                self.add_error('subtitle', 'Please enter a carousel subtitle.')
+            if not image:
+                self.add_error('image', 'Please upload an image.')

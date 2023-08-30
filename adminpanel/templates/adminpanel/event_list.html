@@ -37,13 +37,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for events in events %}
+                                {% for event in events %}
                                 <tr>
                                     <th scope="row">{{ forloop.counter }}</th>
-                                    <td>{{events.name}}</td>
-                                    <td>{{ events.date|date:"jS F Y"  }}</td>
-                                    <td><a class="btn btn-primary" href="{% url 'update_event' events.slug %}">Update</a></td>
-                                    <td><a class="btn btn-danger" href="{% url 'delete_event' events.slug %}">Delete</a></td>
+                                    <td>{{event.title}}</td>
+                                    <td>{{ event.eventDate|date:"jS F Y"  }}</td>
+                                    <td><a class="btn btn-primary" href="{% url 'update_event' event.slug %}">Update</a></td>
+                                    <td><a class="btn btn-danger" href="{% url 'delete_event' event.slug %}">Delete</a></td>
                                 </tr>
                                 {% endfor %}
                                

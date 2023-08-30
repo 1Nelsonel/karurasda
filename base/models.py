@@ -20,10 +20,10 @@ class Category(models.Model):
 
 # blogs
 class Blog(models.Model):
-    host = models.CharField(max_length=200, null=True, db_index=True)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, db_index=True)
     title = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(null=False, unique=True)
+    slug = models.SlugField(null=False, unique=True, db_index=True)
+    host = models.CharField(max_length=200, null=True, db_index=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, db_index=True)    
     description = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='static/blog', null=True)
     updated = models.DateTimeField(auto_now=True)
@@ -32,6 +32,7 @@ class Blog(models.Model):
     class Meta:
         ordering = ['-updated', '-created']
 
+    
     def __str__(self):
         return self.title[0:50]
 
@@ -40,8 +41,15 @@ class Blog(models.Model):
         if self.image and hasattr(self.image, 'url'):
             return self.image.url
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+
+        super().save(*args, **kwargs)
+
     def get_absolute_url(self):
         return reverse('blog-detail', kwargs={'slug': self.slug})
+
     
 # blog comment
 class Comment(models.Model):    

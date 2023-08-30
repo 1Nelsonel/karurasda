@@ -75,8 +75,10 @@
                                 <button class="nav-link active" data-bs-toggle="tab"
                                     data-bs-target="#profile-overview">Overview</button>
                             </li>
-                            <li class="p-2"><a class="btn btn-primary" href="{% url 'patron_update' patron.slug %}">Update</a></li>
-                            <li class="p-2"><a class="btn btn-danger" href="{% url 'patron_delete' patron.slug %}">Delete</a></li>
+                           
+                            <td><a class="btn btn-primary" href="{% url 'patron_update' patron.pk %}">Update</a></td>
+                        
+                            <td><a class="btn btn-danger" href="{% url 'patron_delete' patron.pk %}">Delete</a></td>
 
                         </ul>
                         <div class="tab-content pt-2">

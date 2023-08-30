@@ -57,10 +57,10 @@
                         <img src="{{gallary.image.url}}" alt="kcausda image">
                         <h4>{{gallary.name}}</h4>
                         <div class="p-2">
-                            <a class="btn btn-primary" href="{% url 'gallary_update' gallary.slug %}">Update</a>
+                            <a class="btn btn-primary" href="{% url 'gallary_update' gallary.pk %}">Update</a>
                         </div>
                         <div class="p-2">
-                            <a class="btn btn-danger" href="{% url 'gallary_delete' gallary.slug %}">Delete</a>
+                            <a class="btn btn-danger" href="{% url 'gallary_delete' gallary.pk %}">Delete</a>
                         </div>
                     </div>
                 </div>

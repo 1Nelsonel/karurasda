@@ -6,10 +6,12 @@ from django.core.paginator import Paginator
 from .forms import CommentForm, ContactForm
 from django.contrib import messages
 from django.db.models import Q
+from django.views.decorators.cache import cache_page
 
 # ==================================================================
 # 1. home
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def home(request):
     carousels = Carousel.objects.all()
     today = datetime.today()
@@ -37,6 +39,7 @@ def home(request):
 # ==================================================================
 # 2. About
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def about(request):
     context = {}
     return render(request, 'base/about.html', context)
@@ -44,6 +47,7 @@ def about(request):
 # ==================================================================
 # 3. Faq
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def faq(request):
     context = {}
     return render(request, 'base/faq.html', context)
@@ -51,6 +55,7 @@ def faq(request):
 # ==================================================================
 # 4. Pastor
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def leaders(request):
     leaders_by_category = Leader.objects.values('category').distinct()
     leaders = {}
@@ -64,6 +69,7 @@ def leaders(request):
 # ==================================================================
 # 5. Member
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def member(request):
     context = {}
     return render(request, 'base/member.html', context)
@@ -71,6 +77,7 @@ def member(request):
 # ==================================================================
 # 6. Vaccancy
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def vaccancy(request):
     context = {}
     return render(request, 'base/vaccancy.html', context)
@@ -78,6 +85,7 @@ def vaccancy(request):
 # ==================================================================
 # 7. Contact
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -95,6 +103,7 @@ def contact(request):
 # ==================================================================
 # 8. Livestream
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def livestream(request):
     context = {}
     return render(request, 'base/livestream.html', context)
@@ -102,6 +111,7 @@ def livestream(request):
 # ==================================================================
 # 9. Blogs
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def blogs(request):
     blogs = Blog.objects.all()
     categories = Category.objects.all()
@@ -111,6 +121,7 @@ def blogs(request):
 # ==================================================================
 # 10. Blog
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def blog(request, slug):
     blog = Blog.objects.get(slug=slug)
     categories = Category.objects.all()
@@ -157,11 +168,13 @@ def media(request):
 # ==================================================================
 # 14. Ministries
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def ministries(request):
     ministries = Ministry.objects.all()
     context = {'ministries':ministries}
     return render(request, 'base/ministries.html', context)
 
+@cache_page(60*5)  # Cache the view for 5 minutes
 def ministry(request, slug):
     ministry = Ministry.objects.get(slug=slug)
     context = {'ministry':ministry}
@@ -170,11 +183,13 @@ def ministry(request, slug):
 # ==================================================================
 # 15. Events
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def events(request):
     events = Event.objects.all()
     context = { 'events': events,}
     return render(request, 'base/events.html', context)
 
+@cache_page(60*5)  # Cache the view for 5 minutes
 def event(request, slug):
     event = Event.objects.get(slug=slug)
     context = {'event':event}
@@ -183,6 +198,7 @@ def event(request, slug):
 # ==================================================================
 # 16. Events
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def gallary(request):
     all_galleries = Gallery.objects.all()
     activities =  Event.objects.all()
@@ -219,6 +235,7 @@ def gallary(request):
 # ==================================================================
 # 17. sermon
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def sermon(request):
     all_galleries = Sermon.objects.all()
     activities =  Event.objects.all()
@@ -255,6 +272,7 @@ def sermon(request):
 # ==================================================================
 # 18. song
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def song(request):
     all_galleries = Song.objects.all()
     activities =  Event.objects.all()
@@ -291,6 +309,7 @@ def song(request):
 # ==================================================================
 # 19. livestream
 # ==================================================================
+@cache_page(60*5)  # Cache the view for 5 minutes
 def livestream(request):
     all_galleries = LiveStream.objects.all()
     paginator = Paginator(all_galleries, 12)  # Show 4 galleries per page

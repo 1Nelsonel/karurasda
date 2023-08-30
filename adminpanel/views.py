@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages #import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, LogoutView
@@ -7,6 +7,7 @@ from .forms import *
 from base.models import *
 from django.db.models import Count
 from django.views.decorators.cache import cache_page
+from django.http import Http404
 
 # ===========================================================
 # authentication
@@ -24,26 +25,33 @@ class CustomLogoutView(LogoutView):
 # ==================================================================
 # 1. dashboard
 # ==================================================================
-# @login_required(login_url='login')
-# @cache_page(60*5)  # Cache the view for 5 minutes
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def dashboard(request):
     blogs = Blog.objects.all()
+    members = Member.objects.all()
     events = Event.objects.all()
     ministries = Ministry.objects.all()
     leaders = Leader.objects.all()
     event_count = events.count() 
+    member_count = members.count()
     ministry_count = ministries.count()
     blog_count = blogs.count()
     leader_count = leaders.count()
+    ministry_count = ministries.count()
+    article_count = blogs.count()
     
     context = {
         'ministries': ministries,
         'blogs': blogs,
         'events': events,
+        'members': members,
         'event_count': event_count,
+        'member_count': member_count,
         'ministry_count': ministry_count,
         'blog_count': blog_count,
-        'leader_count': leader_count
+        'leader_count': leader_count,
+        'article_count': article_count,
     }
     return render(request, 'adminpanel/dashboard.html', context)
 
@@ -51,6 +59,7 @@ def dashboard(request):
 # 2. members
 # ==================================================================
 @login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def members(request):
     members = Member.objects.all()
     context = {'members':members}
@@ -102,6 +111,7 @@ def deleteMember(request, slug):
 # 3. family
 # ==================================================================
 @login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def family(request):
     families = Family.objects.annotate(member_count=Count('member'))
     
@@ -156,6 +166,7 @@ def deleteFamily(request, slug):
 # 4. department
 # ==================================================================
 @login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def department_list(request):
     departments = Ministry.objects.all()
     context = {'departments': departments}
@@ -200,6 +211,7 @@ def update_department(request, slug):
     return render(request, 'adminpanel/update.html', context)
 
 @login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def delete_department(request, slug):
     department = Ministry.objects.get(slug=slug)
     if request.method == 'POST':
@@ -209,62 +221,18 @@ def delete_department(request, slug):
     context = {'obj': department}
     return render(request, 'adminpanel/delete.html', context)
 
-# ==================================================================
-# 5. announcements
-# ==================================================================
-# def announcement_list(request):
-#     announcements = Announcement.objects.all()
-#     context = {'announcements': announcements}
-#     return render(request, 'dashboard/announcement_list.html', context)
-
-# def add_announcement(request):
-#     if request.method == 'POST':
-#         form = AnnouncementForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'Announcement added successfully!')
-#             return redirect('announcement_list')
-#         else:
-#             for field, errors in form.errors.items():
-#                 for error in errors:
-#                     messages.error(request, f'Error in {field}: {error}')
-
-#     else:
-#         form = AnnouncementForm()
-#     context = {'form': form}
-#     return render(request, 'dashboard/add.html', context)
-
-# def update_announcement(request, slug):
-#     announcement = Announcement.objects.get(slug=slug)
-#     if request.method == 'POST':
-#         form = AnnouncementForm(request.POST, request.FILES, instance=announcement)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'Announcement updated successfully!')
-#             return redirect('announcement_list')
-#     else:
-#         form = AnnouncementForm(instance=announcement)
-#     context = {'form': form, 'announcement': announcement}
-#     return render(request, 'dashboard/update.html', context)
-
-# def delete_announcement(request, slug):
-#     announcement = Announcement.objects.get(slug=slug)
-#     if request.method == 'POST':
-#         announcement.delete()
-#         messages.success(request, 'Announcement deleted successfully!')
-#         return redirect('announcement_list')
-#     context = {'obj': announcement}
-#     return render(request, 'dashboard/delete.html', context)
-
 
 # ==================================================================
 # 6. events
 # ==================================================================
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def event_list(request):
     events = Event.objects.all()
     context = {'events': events}
     return render(request, 'adminpanel/event_list.html', context)
 
+@login_required(login_url='login')
 def add_event(request):
     if request.method == 'POST':
         form = EventForm(request.POST, request.FILES)
@@ -282,6 +250,7 @@ def add_event(request):
     context = {'form': form}
     return render(request, 'adminpanel/add.html', context)
 
+@login_required(login_url='login')
 def update_event(request, slug):
     event = Event.objects.get(slug=slug)
     if request.method == 'POST':
@@ -295,6 +264,7 @@ def update_event(request, slug):
     context = {'form': form, 'event': event}
     return render(request, 'adminpanel/update.html', context)
 
+@login_required(login_url='login')
 def delete_event(request, slug):
     event = Event.objects.get(slug=slug)
     if request.method == 'POST':
@@ -307,11 +277,14 @@ def delete_event(request, slug):
 # ==================================================================
 # 7. blogs
 # ==================================================================
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def blog_list(request):
     blogs = Blog.objects.all()
     context = {'blogs': blogs}
     return render(request, 'adminpanel/blogs.html', context)
 
+@login_required(login_url='login')
 def blog_add(request):
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES)
@@ -328,8 +301,14 @@ def blog_add(request):
     context = {'form': form}
     return render(request, 'adminpanel/add.html', context)
 
+@login_required(login_url='login')
 def blog_update(request, slug):
-    blog = Blog.objects.get(slug=slug)
+    # blog = Blog.objects.get(slug=slug)
+    try:
+        blog = Blog.objects.get(slug=slug)
+    except Blog.DoesNotExist:
+        raise Http404("Blog does not exist")
+    
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES, instance=blog)
         if form.is_valid():
@@ -340,6 +319,7 @@ def blog_update(request, slug):
         context = {'form': form, 'blog': blog}
     return render(request, 'adminpanel/update.html', context)
 
+@login_required(login_url='login')
 def blog_delete(request, slug):
     blog = Blog.objects.get(slug=slug)
     if request.method == 'POST':
@@ -352,6 +332,8 @@ def blog_delete(request, slug):
 # ==================================================================
 # 8. patron
 # ==================================================================
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def patron_list(request):
     patrons = Leader.objects.all()
     if request.method == 'POST':
@@ -369,8 +351,9 @@ def patron_list(request):
     context = {'patrons': patrons,'form': form}
     return render(request, 'adminpanel/patrons.html', context)
 
-def patron_update(request, slug):
-    patron = Leader.objects.get(slug=slug)
+@login_required(login_url='login')
+def patron_update(request, pk):
+    patron = Leader.objects.get(id=pk)
     if request.method == 'POST':
         form = PatronForm(request.POST, request.FILES, instance=patron)
         if form.is_valid():
@@ -379,10 +362,11 @@ def patron_update(request, slug):
     else:
         form = PatronForm(instance=patron)
     context = {'form': form, 'patron': patron}
-    return render(request, 'dashboard/update.html', context)
+    return render(request, 'adminpanel/update.html', context)
 
-def patron_delete(request, slug):
-    patron = Leader.objects.get(slug=slug)
+@login_required(login_url='login')
+def patron_delete(request, pk):
+    patron = Leader.objects.get(id=pk)
     if request.method == 'POST':
         patron.delete()
         return redirect('patron_list')
@@ -392,6 +376,8 @@ def patron_delete(request, slug):
 # ==================================================================
 # 9. video
 # ==================================================================
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def video_list(request):
     videos = Song.objects.all()
     if request.method == 'POST':
@@ -410,8 +396,9 @@ def video_list(request):
     return render(request, 'adminpanel/video_list.html', context)
 
 
-def video_update(request, slug):
-    video = Song.objects.get(slug=slug)
+@login_required(login_url='login')
+def video_update(request, pk):
+    video = Song.objects.get(id=pk)
     if request.method == 'POST':
         form = VideoForm(request.POST, instance=video)
         if form.is_valid():
@@ -422,8 +409,10 @@ def video_update(request, slug):
     context = {'form': form}
     return render(request, 'adminpanel/update.html', context)
 
-def video_delete(request, slug):
-    video = Song.objects.get(slug=slug)
+
+@login_required(login_url='login')
+def video_delete(request, pk):
+    video = Song.objects.get(id=pk)
     if request.method == 'POST':
         video.delete()
         return redirect('video_list')
@@ -434,6 +423,8 @@ def video_delete(request, slug):
 # ==================================================================
 # 10. gallary
 # ==================================================================
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def gallary_list(request):
     gallaries = Gallery.objects.all()
     if request.method == 'POST':
@@ -452,6 +443,7 @@ def gallary_list(request):
     return render(request, 'adminpanel/gallary_list.html', context)
 
 
+@login_required(login_url='login')
 def gallary_update(request, pk):
     gallary = Gallery.objects.get(pk=pk)
     if request.method == 'POST':
@@ -464,6 +456,7 @@ def gallary_update(request, pk):
     context = {'form': form}
     return render(request, 'adminpanel/update.html', context)
 
+@login_required(login_url='login')
 def gallary_delete(request, pk):
     gallary = Gallery.objects.get(pk=pk)
     if request.method == 'POST':
@@ -472,32 +465,22 @@ def gallary_delete(request, pk):
     context = {'obj': gallary}
     return render(request, 'adminpanel/delete.html', context)
 
-# ==================================================================
-# 11. mission
-# ==================================================================
-
-
-# ==================================================================
-# 11. mission_list
-# ==================================================================
-
 
 # ======================================================================
 # contact
 # ======================================================================
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def contact(request):
     contacts = Contact.objects.all()
     context = {'contacts': contacts}
     return render(request, 'adminpanel/messages.html', context)
 
 # =======================================================================
-# calender
-# =======================================================================
-
-
-# =======================================================================
 # livestream
 # =======================================================================
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
 def live_video_list(request):
     videos = LiveStream.objects.all()
     if request.method == 'POST':
@@ -514,8 +497,9 @@ def live_video_list(request):
     context = {'form': form, 'videos': videos}
     return render(request, 'adminpanel/livestream.html', context)
 
-def live_video_update(request, slug):
-    video = LiveStream.objects.get(slug=slug)
+@login_required(login_url='login')
+def live_video_update(request, pk):
+    video = LiveStream.objects.get(id=pk)
     if request.method == 'POST':
         form = LiveVideoForm(request.POST, instance=video)
         if form.is_valid():
@@ -530,11 +514,105 @@ def live_video_update(request, slug):
     context = {'form': form}
     return render(request, 'adminpanel/update.html', context)
 
-def live_video_delete(request, slug):
-    video = LiveStream.objects.get(slug=slug)
+@login_required(login_url='login')
+def live_video_delete(request, pk):
+    video = LiveStream.objects.get(id=pk)
     if request.method == 'POST':
         video.delete()
         return redirect('live_video_list')
     context = {'obj': video}
+    return render(request, 'adminpanel/delete.html', context)
+
+# =======================================================================
+# sermon
+# =======================================================================
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
+def sermon(request):
+    sermons = Sermon.objects.all()
+    if request.method == 'POST':
+        form = SermonForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('sermon_list')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f'Error in {field}: {error}')
+    else:
+        form = SermonForm()
+    context = {'form': form, 'sermons': sermons}
+    return render(request, 'adminpanel/sermon.html', context)
+
+
+@login_required(login_url='login')
+def sermon_update(request, pk):
+    sermon = Sermon.objects.get(id=pk)
+    if request.method == 'POST':
+        form = SermonForm(request.POST, instance=sermon)
+        if form.is_valid():
+            form.save()
+            return redirect('sermon_list')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f'Error in {field}: {error}')
+    else:
+        form = SermonForm(instance=sermon)
+    context = {'form': form}
+    return render(request, 'adminpanel/update.html', context)
+
+
+@login_required(login_url='login')
+def sermon_delete(request, pk):
+    sermon = Sermon.objects.get(id=pk)
+    if request.method == 'POST':
+        sermon.delete()
+        return redirect('sermon_list')
+    context = {'obj': sermon}
+    return render(request, 'adminpanel/delete.html', context)
+
+
+# =======================================================================
+# sermon
+# =======================================================================
+@login_required(login_url='login')
+@cache_page(60*5)  # Cache the view for 5 minutes
+def create_carousel(request):
+    carousels = Carousel.objects.all()
+    if request.method == 'POST':
+        form = CarouselForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('carousel')  # Replace 'carousel_list' with your actual URL name for listing carousels
+    else:
+        form = CarouselForm()
+
+    context = {'form': form, 'carousels':carousels}
+    return render(request, 'adminpanel/carousel.html', context)
+
+
+@login_required(login_url='login')
+def update_carousel(request, pk):
+    carousel = get_object_or_404(Carousel, id=pk)
+    if request.method == 'POST':
+        form = CarouselForm(request.POST, request.FILES, instance=carousel)
+        if form.is_valid():
+            form.save()
+            return redirect('carousel')  # Replace 'carousel_list' with your actual URL name for listing carousels
+    else:
+        form = CarouselForm(instance=carousel)
+
+    context = {'form': form, 'carousel': carousel}
+    return render(request, 'adminpanel/update.html', context)
+
+
+@login_required(login_url='login')
+def delete_carousel(request, pk):
+    carousel = get_object_or_404(Carousel, id=pk)
+    if request.method == 'POST':
+        carousel.delete()
+        return redirect('carousel')  # Replace 'carousel_list' with your actual URL name for listing carousels
+    context = {'obj': carousel}
     return render(request, 'adminpanel/delete.html', context)
 
