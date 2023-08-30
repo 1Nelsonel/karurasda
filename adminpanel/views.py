@@ -26,7 +26,7 @@ class CustomLogoutView(LogoutView):
 # 1. dashboard
 # ==================================================================
 @login_required(login_url='login')
-@cache_page(60*5)  # Cache the view for 5 minutes
+# @cache_page(60*5)  # Cache the view for 5 minutes
 def dashboard(request):
     blogs = Blog.objects.all()
     members = Member.objects.all()

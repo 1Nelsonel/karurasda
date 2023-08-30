@@ -225,7 +225,8 @@
                         <div class="activity">
                             {% for event in events %}
                             <div class="activity-item d-flex">
-                                <div class="activite-label">{{ event.date|date:"jS F Y" }}</div>
+                                <div class="activite-label">{{ event.eventDate|date:"d/m/Y" }}</div>
+
                                 <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                                 <div class="activity-content">
                                     {{event.title}}
