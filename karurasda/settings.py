@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import environ
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+from django.templatetags.static import static
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +44,9 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
+    'unfold',  # Django Unfold - must be before django.contrib.admin
+    'unfold.contrib.filters',  # optional, for enhanced filters
+    'unfold.contrib.forms',  # optional, for enhanced forms
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +54,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base',
-    'adminpanel',
     'embed_video',
 ]
 
@@ -153,3 +158,196 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Django Unfold Configuration
+UNFOLD = {
+    "SITE_TITLE": "Karura SDA Church",
+    "SITE_HEADER": "Karura SDA Administration",
+    "SITE_URL": "/",
+    # Site icon/logo configuration
+    "SITE_ICON": {
+        "light": lambda request: static("images/logo.png"),
+        "dark": lambda request: static("images/logo.png"),
+    },
+    # Dashboard callback for dynamic dashboard
+    "DASHBOARD_CALLBACK": "base.dashboard.dashboard_callback",
+    "LOGIN": {
+        "image": lambda request: static("images/church-background.jpg"),
+        "redirect_after": lambda request: reverse_lazy("admin:index"),
+    },
+    "STYLES": [
+        lambda request: static("css/custom-admin.css"),
+    ],
+    "SCRIPTS": [
+        lambda request: static("js/custom-admin.js"),
+    ],
+    # Theme colors - Blue/Purple theme for Karura SDA
+    "COLORS": {
+        "primary": {
+            "50": "240 249 255",
+            "100": "224 242 254",
+            "200": "186 230 253",
+            "300": "125 211 252",
+            "400": "56 189 248",
+            "500": "14 165 233",
+            "600": "2 132 199",
+            "700": "3 105 161",
+            "800": "7 89 133",
+            "900": "12 74 110",
+        },
+    },
+    "EXTENSIONS": {
+        "modeltranslation": {
+            "flags": {
+                "en": "🇬🇧",
+                "sw": "🇰🇪",
+            },
+        },
+    },
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": True,
+        "navigation": [
+            {
+                "title": _("Dashboard"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Dashboard"),
+                        "icon": "dashboard",
+                        "link": reverse_lazy("admin:index"),
+                    },
+                ],
+            },
+            {
+                "title": _("Content Management"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Blog Posts"),
+                        "icon": "article",
+                        "link": reverse_lazy("admin:base_blog_changelist"),
+                    },
+                    {
+                        "title": _("Categories"),
+                        "icon": "category",
+                        "link": reverse_lazy("admin:base_category_changelist"),
+                    },
+                    {
+                        "title": _("Comments"),
+                        "icon": "comment",
+                        "link": reverse_lazy("admin:base_comment_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Events & Programs"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Events"),
+                        "icon": "event",
+                        "link": reverse_lazy("admin:base_event_changelist"),
+                    },
+                    {
+                        "title": _("Ministries"),
+                        "icon": "groups",
+                        "link": reverse_lazy("admin:base_ministry_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Media & Gallery"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Gallery"),
+                        "icon": "photo_library",
+                        "link": reverse_lazy("admin:base_gallery_changelist"),
+                    },
+                    {
+                        "title": _("Sermons"),
+                        "icon": "video_library",
+                        "link": reverse_lazy("admin:base_sermon_changelist"),
+                    },
+                    {
+                        "title": _("Songs"),
+                        "icon": "music_note",
+                        "link": reverse_lazy("admin:base_song_changelist"),
+                    },
+                    {
+                        "title": _("Live Stream"),
+                        "icon": "live_tv",
+                        "link": reverse_lazy("admin:base_livestream_changelist"),
+                    },
+                    {
+                        "title": _("Carousel"),
+                        "icon": "view_carousel",
+                        "link": reverse_lazy("admin:base_carousel_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Church Leadership"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Leaders"),
+                        "icon": "engineering",
+                        "link": reverse_lazy("admin:base_leader_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Members & Families"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Families"),
+                        "icon": "family_restroom",
+                        "link": reverse_lazy("admin:base_family_changelist"),
+                    },
+                    {
+                        "title": _("Members"),
+                        "icon": "people",
+                        "link": reverse_lazy("admin:base_member_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Administration"),
+                "separator": True,
+                "items": [
+                    {
+                        "title": _("Users"),
+                        "icon": "person",
+                        "link": reverse_lazy("admin:auth_user_changelist"),
+                    },
+                    {
+                        "title": _("Groups"),
+                        "icon": "group",
+                        "link": reverse_lazy("admin:auth_group_changelist"),
+                    },
+                ],
+            },
+        ],
+    },
+    "TABS": [
+        {
+            "models": [
+                "auth.user",
+                "auth.group",
+            ],
+            "items": [
+                {
+                    "title": _("Users"),
+                    "link": reverse_lazy("admin:auth_user_changelist"),
+                },
+                {
+                    "title": _("Groups"),
+                    "link": reverse_lazy("admin:auth_group_changelist"),
+                },
+            ],
+        },
+    ],
+}

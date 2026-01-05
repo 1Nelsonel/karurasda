@@ -1,0 +1,12 @@
+/*
+ * Karura SDA Custom Admin Styles
+ * Add your custom CSS here
+ */
+
+/* Example: Custom branding colors */
+:root {
+    --karura-primary: #0ea5e9;
+    --karura-secondary: #7c3aed;
+}
+
+/* Add your custom styles below */

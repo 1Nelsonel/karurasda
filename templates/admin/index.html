@@ -1,0 +1,363 @@
+{% extends 'admin/base.html' %}
+{% load i18n static %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block title %}
+    {% if subtitle %}{{ subtitle }} | {% endif %}
+    {{ title }} | {{ site_title|default:_('Django site admin') }}
+{% endblock %}
+
+{% block branding %}
+    {% include "unfold/helpers/site_branding.html" %}
+{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <style>
+        /* Dashboard theme support - Light mode colors */
+        .dashboard-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .dashboard-text-primary {
+            color: #111827;
+        }
+        .dashboard-text-secondary {
+            color: #6b7280;
+        }
+        .dashboard-bg-secondary {
+            background: #f9fafb;
+        }
+        .dashboard-border {
+            border-color: #e5e7eb;
+        }
+        .dashboard-hover:hover {
+            background: #f9fafb;
+        }
+
+        /* Dark mode overrides */
+        html.dark .dashboard-card {
+            background: #1f2937 !important;
+            border-color: #374151 !important;
+        }
+        html.dark .dashboard-text-primary {
+            color: #f9fafb !important;
+        }
+        html.dark .dashboard-text-secondary {
+            color: #9ca3af !important;
+        }
+        html.dark .dashboard-bg-secondary {
+            background: #111827 !important;
+        }
+        html.dark .dashboard-border {
+            border-color: #374151 !important;
+        }
+        html.dark .dashboard-hover:hover {
+            background: #374151 !important;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+<div style="padding: 1.5rem; max-width: 1920px; margin: 0 auto;">
+    <!-- Dashboard Header -->
+    <div style="margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h1 class="dashboard-text-primary" style="font-size: 1.875rem; font-weight: 700; margin: 0 0 0.25rem 0;">{{ dashboard_title }}</h1>
+                <p class="dashboard-text-secondary" style="font-size: 0.875rem; margin: 0;">Welcome back, {{ user.get_full_name|default:user.username }}</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <span class="dashboard-text-secondary" style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.75rem;">
+                    <span class="material-symbols-outlined" style="font-size: 1rem;">schedule</span>
+                    Updated: {{ last_updated|date:"H:i" }}
+                </span>
+                <a href="?refresh=1" class="dashboard-card" style="display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; text-decoration: none;" title="Refresh Dashboard">
+                    <span class="material-symbols-outlined dashboard-text-primary">refresh</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerts Section -->
+    {% if alerts %}
+    <div style="display: grid; gap: 1rem; margin-bottom: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        {% for alert in alerts %}
+        <a href="{{ alert.url }}"
+           style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border-radius: 0.75rem; border: 2px solid; text-decoration: none; transition: transform 0.2s;
+                  {% if alert.type == 'warning' %}background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #92400e;{% endif %}
+                  {% if alert.type == 'info' %}background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3); color: #1e40af;{% endif %}
+                  {% if alert.type == 'success' %}background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: #065f46;{% endif %}"
+           onmouseover="this.style.transform='translateX(4px)'"
+           onmouseout="this.style.transform='translateX(0)'">
+            <span class="material-symbols-outlined" style="font-size: 1.5rem;">{{ alert.icon }}</span>
+            <div style="flex: 1;">
+                <div style="font-weight: 600; font-size: 0.875rem; margin-bottom: 0.125rem;">{{ alert.title }}</div>
+                <div style="font-size: 0.75rem; opacity: 0.8;">{{ alert.message }}</div>
+            </div>
+            <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- KPI Cards -->
+    <div style="display: grid; gap: 1.5rem; margin-bottom: 2rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        {% for key, kpi in kpi_cards.items %}
+        <div class="dashboard-fadeIn" style="
+            {% if kpi.color == 'blue' %}background: linear-gradient(135deg, #2b4eee 0%, #4557f5 100%);{% endif %}
+            {% if kpi.color == 'green' %}background: linear-gradient(135deg, #10b981 0%, #059669 100%);{% endif %}
+            {% if kpi.color == 'purple' %}background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);{% endif %}
+            {% if kpi.color == 'orange' %}background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);{% endif %}
+            border-radius: 12px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;"
+            onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.2)';"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.1)';">
+            <a href="{{ kpi.url }}" style="display: block; text-decoration: none; color: white;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span class="material-symbols-outlined" style="font-size: 2rem; opacity: 0.9;">{{ kpi.icon }}</span>
+                        <div>
+                            <p style="font-size: 0.875rem; font-weight: 500; margin: 0 0 4px 0; opacity: 0.9;">{{ kpi.title }}</p>
+                            <h3 style="font-size: 2rem; font-weight: 700; margin: 0; line-height: 1;">{{ kpi.value }}</h3>
+                        </div>
+                    </div>
+                    {% if kpi.trend %}
+                    <div style="display: flex; align-items: center; gap: 0.25rem; padding: 0.25rem 0.5rem; border-radius: 0.375rem; font-size: 0.75rem; font-weight: 600; background: rgba(255, 255, 255, 0.2);">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">
+                            {% if kpi.trend.direction == 'up' %}trending_up{% elif kpi.trend.direction == 'down' %}trending_down{% else %}trending_flat{% endif %}
+                        </span>
+                        <span>{{ kpi.trend.percentage }}%</span>
+                    </div>
+                    {% endif %}
+                </div>
+                <p style="font-size: 0.8rem; margin: 0 0 12px 0; opacity: 0.85;">{{ kpi.subtitle }}</p>
+                {% if kpi.stats %}
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.75rem; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                    {% for stat_name, stat_value in kpi.stats.items %}
+                    <div style="display: flex; flex-direction: column; gap: 0.125rem;">
+                        <span style="font-size: 0.625rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; opacity: 0.8;">{{ stat_name }}</span>
+                        <span style="font-size: 0.875rem; font-weight: 700;">{{ stat_value }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Quick Stats Grid -->
+    <div style="margin-bottom: 2rem;">
+        <h2 class="dashboard-text-primary" style="font-size: 1.25rem; font-weight: 600; margin: 0 0 1rem 0;">Quick Overview</h2>
+        <div style="display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+            {% for key, stat in quick_stats.items %}
+            <a href="{{ stat.url }}" class="dashboard-card dashboard-fadeIn dashboard-hover" style="display: flex; align-items: center; gap: 1rem; padding: 1.25rem; text-decoration: none; transition: all 0.2s;">
+                <div class="dashboard-bg-secondary" style="width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; color: #3b82f6;">
+                    <span class="material-symbols-outlined" style="font-size: 1.25rem;">{{ stat.icon }}</span>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                    <div class="dashboard-text-primary" style="font-size: 1.5rem; font-weight: 700; line-height: 1; margin-bottom: 0.25rem;">{{ stat.count }}</div>
+                    <div class="dashboard-text-secondary" style="font-size: 0.75rem; line-height: 1.2;">{{ stat.title }}</div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div style="display: grid; gap: 1.5rem; margin-bottom: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <!-- Recent Admin Activity -->
+        <div class="dashboard-card dashboard-fadeIn" style="overflow: hidden;">
+            <div class="dashboard-border" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom-width: 1px;">
+                <h3 class="dashboard-text-primary" style="display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; font-weight: 600; margin: 0;">
+                    <span class="material-symbols-outlined" style="font-size: 1.25rem; color: #3b82f6;">history</span>
+                    Recent Activity
+                </h3>
+                {% if recent_admin_logs|length > 0 %}
+                <a href="{% url 'admin:admin_logentry_changelist' %}"
+                   style="font-size: 0.75rem; color: #3b82f6; font-weight: 500; text-decoration: none; padding: 0.25rem 0.5rem;">
+                    View All ({{ recent_admin_logs|length }}{% if recent_admin_logs|length >= 10 %}+{% endif %})
+                </a>
+                {% endif %}
+            </div>
+            <div>
+                {% for entry in recent_admin_logs|slice:":5" %}
+                <a href="{% if entry.get_admin_url %}{{ entry.get_admin_url }}{% else %}#{% endif %}"
+                   class="activity-item dashboard-hover dashboard-border"
+                   style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; border-bottom-width: 1px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                    <div style="width: 2rem; height: 2rem; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+                                {% if entry.action_flag == 1 %}background: rgba(16, 185, 129, 0.1); color: #059669;{% endif %}
+                                {% if entry.action_flag == 2 %}background: rgba(59, 130, 246, 0.1); color: #2563eb;{% endif %}
+                                {% if entry.action_flag == 3 %}background: rgba(239, 68, 68, 0.1); color: #dc2626;{% endif %}">
+                        <span class="material-symbols-outlined" style="font-size: 1rem;">
+                            {% if entry.action_flag == 1 %}add{% elif entry.action_flag == 2 %}edit{% elif entry.action_flag == 3 %}delete{% endif %}
+                        </span>
+                    </div>
+                    <div style="flex: 1; min-width: 0;">
+                        <div class="dashboard-text-primary" style="font-size: 0.875rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ entry.object_repr|truncatechars:40 }}</div>
+                        <div class="dashboard-text-secondary" style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.75rem;">
+                            <span>{{ entry.content_type.name|capfirst }}</span>
+                            <span>•</span>
+                            <span>{{ entry.user.get_full_name|default:entry.user.username }}</span>
+                            <span>•</span>
+                            <span>{{ entry.action_time|timesince }} ago</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined dashboard-text-secondary">arrow_forward</span>
+                </a>
+                {% empty %}
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 1.5rem; text-align: center;">
+                    <span class="material-symbols-outlined dashboard-text-secondary" style="font-size: 3rem; opacity: 0.5; margin-bottom: 1rem;">history</span>
+                    <p class="dashboard-text-secondary" style="font-size: 0.875rem; margin: 0;">No recent activity</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Recent Blogs -->
+        <div class="dashboard-card dashboard-fadeIn" style="overflow: hidden;">
+            <div class="dashboard-border" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom-width: 1px;">
+                <h3 class="dashboard-text-primary" style="display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; font-weight: 600; margin: 0;">
+                    <span class="material-symbols-outlined" style="font-size: 1.25rem; color: #3b82f6;">article</span>
+                    Recent Blog Posts
+                </h3>
+                <a href="{% url 'admin:base_blog_changelist' %}" style="font-size: 0.75rem; color: #3b82f6; font-weight: 500; text-decoration: none;">View All</a>
+            </div>
+            <div>
+                {% for blog in recent_activity.recent_blogs %}
+                <a href="{{ blog.url }}" class="dashboard-hover dashboard-border" style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; border-bottom-width: 1px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div class="dashboard-text-primary" style="font-size: 0.875rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ blog.data.title|truncatechars:45 }}</div>
+                        <div class="dashboard-text-secondary" style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.75rem;">
+                            <span>{{ blog.data.host|default:"Karura SDA" }}</span>
+                            <span>•</span>
+                            <span>{{ blog.data.created|timesince }} ago</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined dashboard-text-secondary">arrow_forward</span>
+                </a>
+                {% empty %}
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 1.5rem; text-align: center;">
+                    <span class="material-symbols-outlined dashboard-text-secondary" style="font-size: 3rem; opacity: 0.5; margin-bottom: 1rem;">article</span>
+                    <p class="dashboard-text-secondary" style="font-size: 0.875rem; margin: 0;">No blog posts yet</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Recent Events -->
+        <div class="dashboard-card dashboard-fadeIn" style="overflow: hidden;">
+            <div class="dashboard-border" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom-width: 1px;">
+                <h3 class="dashboard-text-primary" style="display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; font-weight: 600; margin: 0;">
+                    <span class="material-symbols-outlined" style="font-size: 1.25rem; color: #3b82f6;">event</span>
+                    Recent Events
+                </h3>
+                <a href="{% url 'admin:base_event_changelist' %}" style="font-size: 0.75rem; color: #3b82f6; font-weight: 500; text-decoration: none;">View All</a>
+            </div>
+            <div>
+                {% for event in recent_activity.recent_events %}
+                <a href="{{ event.url }}" class="dashboard-hover dashboard-border" style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; border-bottom-width: 1px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div class="dashboard-text-primary" style="font-size: 0.875rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.data.title|truncatechars:45 }}</div>
+                        <div class="dashboard-text-secondary" style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.75rem;">
+                            <span>{{ event.data.eventDate|date:"M d, Y" }}</span>
+                            <span>•</span>
+                            <span>{{ event.data.venue|truncatechars:25 }}</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined dashboard-text-secondary">arrow_forward</span>
+                </a>
+                {% empty %}
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 1.5rem; text-align: center;">
+                    <span class="material-symbols-outlined dashboard-text-secondary" style="font-size: 3rem; opacity: 0.5; margin-bottom: 1rem;">event</span>
+                    <p class="dashboard-text-secondary" style="font-size: 0.875rem; margin: 0;">No events yet</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Recent Comments -->
+        <div class="dashboard-card dashboard-fadeIn" style="overflow: hidden;">
+            <div class="dashboard-border" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom-width: 1px;">
+                <h3 class="dashboard-text-primary" style="display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; font-weight: 600; margin: 0;">
+                    <span class="material-symbols-outlined" style="font-size: 1.25rem; color: #3b82f6;">comment</span>
+                    Recent Comments
+                </h3>
+                <a href="{% url 'admin:base_comment_changelist' %}" style="font-size: 0.75rem; color: #3b82f6; font-weight: 500; text-decoration: none;">View All</a>
+            </div>
+            <div>
+                {% for comment in recent_activity.recent_comments %}
+                <a href="{{ comment.url }}" class="dashboard-hover dashboard-border" style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; border-bottom-width: 1px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                    <div style="flex: 1; min-width: 0;">
+                        <div class="dashboard-text-primary" style="font-size: 0.875rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ comment.data.body|truncatechars:40 }}</div>
+                        <div class="dashboard-text-secondary" style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.75rem;">
+                            <span>{{ comment.data.user }}</span>
+                            <span>•</span>
+                            <span>{{ comment.data.created|timesince }} ago</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined dashboard-text-secondary">arrow_forward</span>
+                </a>
+                {% empty %}
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 1.5rem; text-align: center;">
+                    <span class="material-symbols-outlined dashboard-text-secondary" style="font-size: 3rem; opacity: 0.5; margin-bottom: 1rem;">comment</span>
+                    <p class="dashboard-text-secondary" style="font-size: 0.875rem; margin: 0;">No comments yet</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Events Section -->
+    <div style="display: grid; gap: 1.5rem; margin-bottom: 2rem; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+        <!-- Upcoming Events -->
+        <div class="dashboard-card dashboard-fadeIn" style="overflow: hidden;">
+            <div class="dashboard-border" style="display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; border-bottom-width: 1px;">
+                <h3 class="dashboard-text-primary" style="display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; font-weight: 600; margin: 0;">
+                    <span class="material-symbols-outlined" style="font-size: 1.25rem; color: #3b82f6;">event_upcoming</span>
+                    Upcoming Events
+                </h3>
+                <a href="{% url 'admin:base_event_changelist' %}" style="font-size: 0.75rem; color: #3b82f6; font-weight: 500; text-decoration: none;">View All</a>
+            </div>
+            <div>
+                {% for event in upcoming_content.upcoming_events %}
+                <a href="{{ event.url }}" class="dashboard-hover dashboard-border" style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; border-bottom-width: 1px; text-decoration: none; color: inherit; transition: background 0.2s;">
+                    <div style="width: 3rem; height: 3rem; border-radius: 0.5rem; background: #3b82f6; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <div style="font-size: 1.125rem; font-weight: 700; line-height: 1;">{{ event.data.eventDate|date:"d" }}</div>
+                        <div style="font-size: 0.625rem; text-transform: uppercase; font-weight: 600; line-height: 1;">{{ event.data.eventDate|date:"M" }}</div>
+                    </div>
+                    <div style="flex: 1; min-width: 0;">
+                        <div class="dashboard-text-primary" style="font-size: 0.875rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ event.data.title|truncatechars:45 }}</div>
+                        <div class="dashboard-text-secondary" style="display: flex; align-items: center; gap: 0.375rem; font-size: 0.75rem;">
+                            <span>{{ event.data.startTime }}</span>
+                            <span>•</span>
+                            <span>{{ event.data.venue|truncatechars:20 }}</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined dashboard-text-secondary">arrow_forward</span>
+                </a>
+                {% empty %}
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 1.5rem; text-align: center;">
+                    <span class="material-symbols-outlined dashboard-text-secondary" style="font-size: 3rem; opacity: 0.5; margin-bottom: 1rem;">event_upcoming</span>
+                    <p class="dashboard-text-secondary" style="font-size: 0.875rem; margin: 0;">No upcoming events</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
