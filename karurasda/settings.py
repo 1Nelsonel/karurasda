@@ -172,10 +172,7 @@ UNFOLD = {
     "SITE_HEADER": "Karura SDA Administration",
     "SITE_URL": "/",
     # Site icon/logo configuration
-    "SITE_ICON": {
-        "light": lambda request: static("images/logo.png"),
-        "dark": lambda request: static("images/logo.png"),
-    },
+    "SITE_ICON": lambda request: static("images/logo.png"),
     # Dashboard callback for dynamic dashboard
     "DASHBOARD_CALLBACK": "base.dashboard.dashboard_callback",
     "LOGIN": {
