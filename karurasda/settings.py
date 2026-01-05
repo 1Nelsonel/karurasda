@@ -94,34 +94,15 @@ WSGI_APPLICATION = 'karurasda.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# Build database configuration
-db_config = {
-    'ENGINE': env('DB_ENGINE'),
-    'NAME': env('DB_NAME'),
-    'USER': env('DB_USER'),
-    'PASSWORD': env('DB_PASSWORD'),
-}
-
-# Add HOST if provided
-db_host = env('DB_HOST', default='')
-if db_host:
-    db_config['HOST'] = db_host
-
-# Add PORT if provided
-db_port = env('DB_PORT', default='')
-if db_port:
-    db_config['PORT'] = db_port
-
-# Add OPTIONS if needed
-db_options = {}
-if env('DB_SSLMODE', default=''):
-    db_options['sslmode'] = env('DB_SSLMODE')
-
-if db_options:
-    db_config['OPTIONS'] = db_options
-
 DATABASES = {
-    'default': db_config
+    'default': {
+        'ENGINE': env('DB_ENGINE', default='django.db.backends.postgresql'),
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST', default='localhost'),
+        'PORT': env('DB_PORT', default='5432'),
+    }
 }
 
 
